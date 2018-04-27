@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>BirdF2L 0.9</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.min.css">
+        <style>
+         * { font-size: 14pt; }
+         .dataframe tr > th:nth-child(1),
+         .dataframe tr > th:nth-child(2),
+         .dataframe tr > td:nth-child(2),
+         .dataframe tr > th:nth-child(6),
+         .dataframe tr > td:nth-child(6),
+         .table-small tr > th { display: none; }
+         .dataframe td:nth-child(7) { width: 50%; }
+         .table-small td {
+             border: 0;
+             margin: 0;
+             padding: 0;
+         }
+         .table-small {
+             border: 0;
+             margin: 0;
+             padding: 0;
+         }
+         dt { float: right; font-weight: normal; }
+         code, samp { font-size: 14pt; }
+         .canon { color: #00cc66; }
+         .xs-alg { height: 10em; }
+         .sm-alg { height: 20em; }
+         .md-alg { height: 30em; }
+         .lg-alg { height: 40em; }
+         .xl-alg { height: 50em; }
+        </style>
+    </head>
+    <body>
+        {{ content }}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js" async></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+         $(function(){
+             $('.dataframe').DataTable({
+                 paging: false,
+                 searching: false,
+                 order: [[2, 'asc']],
+             });
+             
+             $('.bf-pattern').each(function(index, value){
+                 var $e = $(value);
+                 var alg = $e.find('td:nth-child(7)')[0].textContent;
+                 var src = "https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?";
+                 src += $.param({
+                     'fmt': 'png',
+                     'bg': 'w',
+                     'size': '256',
+                     'sch': 'ygrwbo',
+                     'stage': 'f2l',
+                     'view': '3d',
+                     'case': alg,
+                 });
+                 $e.find('img').attr('src', src);
+                 $e.find('code').text(alg);
+             });
+         });
+        </script>
+    </body>
+</html>
