@@ -10,6 +10,10 @@
         <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.min.css">
         <style>
          * { font-size: 14pt; }
+         table.dataTable {
+             border-collapse: collapse !important;
+             margin-top: 0 !important;
+         }
          .dataframe tr > th:nth-child(1),
          .dataframe tr > th:nth-child(2),
          .dataframe tr > td:nth-child(2),
@@ -17,12 +21,14 @@
          .dataframe tr > td:nth-child(6),
          .table-small tr > th { display: none; }
          .dataframe td:nth-child(7) { width: 50%; }
-         .table-small td {
+         .bf-tiny-table,
+         .bf-tiny-table td {
              border: 0;
              margin: 0;
              padding: 0;
          }
-         .table-small {
+         .table-small,
+         .table-small td {
              border: 0;
              margin: 0;
              padding: 0;
@@ -35,12 +41,170 @@
          .md-alg { height: 30em; }
          .lg-alg { height: 40em; }
          .xl-alg { height: 50em; }
+         .card-body > samp { font-size: x-large; }
+         table.bf-nav-table tr td { width: 33%; } 
         </style>
     </head>
-    <body>
-        <div class="float-left">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#aboutModal">About...</button>
-        </div>
+    <body id="home">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#top">BirdF2L</a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#aboutModal">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            U-Sexy
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-1D1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0A2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U%20R%27" width="64px"/></a>
+                                <samp>T</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1A0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20L%27%20U2%20L%20F" width="64px"/></a>
+                                <a href="#pattern-0D0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20B%20U2%20B%27%20R%27" width="64px"/></a>
+                                <samp>V</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1A1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%27%20F%20U%27%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0D2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U%20R%27%20U%20R%20U%20R%27" width="64px"/></a>
+                                <samp>R</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1D2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%27%20F%20U%20F%27%20U2%20F" width="64px"/></a>
+                                <a href="#pattern-0A1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U%20R%27%20U%27%20R%20U2%20R%27" width="64px"/></a>
+                                <samp>Q</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1D0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20F%27%20U2%20F%20U%27%20F%27%20U%20F" width="64px"/></a>
+                                <a href="#pattern-0A0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20R%20U2%20R%27%20U%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>U</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1A2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U2%20F%20U%20F%27%20U2%20F" width="64px"/></a>
+                                <a href="#pattern-0D1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U2%20R%27%20U%27%20R%20U2%20R%27" width="64px"/></a>
+                                <samp>S</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            U-Pair
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20F%27%20U%20F" width="64px"/></a>
+                                <a href="#pattern-0B1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>I</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U2%20F%20U%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0B0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U2%20R%27%20U%27%20R%20U%20R%27" width="64px"/></a>
+                                <samp>N</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1B1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%20U2%20F2%20U%27%20F2%20U%27%20F%27" width="64px"/></a>
+                                <a href="#pattern-0C2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%27%20U2%20R2%20U%20R2%20U%20R" width="64px"/></a>
+                                <samp>J</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1B2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U%27%20R%27%20U2%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0C1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%20U2%20R%20U%20R%27" width="64px"/></a>
+                                <samp>K</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%20F%20U%27%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0B2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U%27%20R%27%20U%20R%20U%20R%27" width="64px"/></a>
+                                <samp>L</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1B0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U2%20F2%20U2%20F%20U%20F%27%20U%20F2" width="64px"/></a>
+                                <a href="#pattern-0C0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U2%20R2%20U2%20R%27%20U%27%20R%20U%27%20R2" width="64px"/></a>
+                                <samp>M</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            D-Sexy
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C2V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%27%20F%20U%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0B1V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U%20R%27%20U%27%20R%20U%20R%27" width="64px"/></a>
+                                <samp>F</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C1V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%20U%27%20F%27%20U%20F" width="64px"/></a>
+                                <a href="#pattern-0B2V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U%27%20R%27%20U%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>E</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C0V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20R%20U%20R%27%20U%27%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0B0V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20F%27%20U%20F%20U%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>A</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            D-Pair
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-0J2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%20F%20U2%20F%27%20U%20F" width="64px"/></a>
+                                <a href="#pattern-0J1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20F%27%20U%27%20F%20U2%20F%27%20U%27%20F" width="64px"/></a>
+                                <samp>G</samp>
+
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1J2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%27%20F%20U%27%20R%20U%20R%27" width="64px"/></a>
+                                <a href="#pattern-1J1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U%20R%27%20U%20F%27%20U%27%20F" width="64px"/></a>
+                                <samp>H</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1J2V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F2%20L%27%20U%27%20L%20U%20F%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-1J1V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%27%20U%27%20L%27%20U%20L%20F2" width="64px"/></a>
+                                <samp>D</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-0J2V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U2%20F%27%20U%27%20F%20U%27%20F%27%20U2%20F2" width="64px"/></a>
+                                <a href="#pattern-0J1V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U2%20R%20U%20R%27%20U%20R%20U2%20R2" width="64px"/></a>
+                                <samp>C</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Other
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-1J0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%20U%27%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>Y</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-0J0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F2%20U%27%20F2%20U%27%20F2%20U2%20F2" width="64px"/></a>
+                                <samp>X</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1J0V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%20U%27%20R%20U2%20R%27%20U2%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>Z</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/andydude/birdf2l">Source</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br/>
+        <br/>
+        <br/>
         <div class="modal" id="aboutModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -61,6 +225,7 @@
                 </div>
             </div>
         </div>
+        <div class="clearfix"></div>
         
         {{ content }}
 
