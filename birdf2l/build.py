@@ -12,7 +12,7 @@ ENV = Environment(
 
 
 def render_pattern(pat):
-    algtable = ALG[ALG.myposid == pat['shortid']].to_html()
+    algtable = ALG[ALG.patid == pat['shortid']].to_html()
     algtable = algtable.replace(
         'dataframe', 'dataframe table table-bordered table-hover')
     infotable = DataFrame([
