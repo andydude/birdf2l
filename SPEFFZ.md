@@ -15,13 +15,13 @@ H  g  G  L  k  K  P  o  O  T  s  S
 Last Layer (LL) algorithms can be described by IDs of the form
 
 ```
-{Ae}{Be}{Ce}{De}/{Ac}{Bc}{Cc}{Dc}
+{A}{a}{B}{b}{C}{c}{D}{d}
 ```
 
 First Two Layer (F2L) algorithms can be described by Anti-IDs of the form
 
 ```
-{Ae}{Be}{Ce}{De}/{Ac}{Bc}{Cc}{Dc}/{Je}/{Vc}
+{A}{a}{B}{b}{C}{c}{D}{d}/{V}{j}
 ```
 
 Some cube systems use sticker rotation, some use
