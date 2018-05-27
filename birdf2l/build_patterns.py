@@ -12,7 +12,7 @@ ENV = Environment(
 
 
 def render_pattern(pat):
-    algtable = ALG[ALG.patid == pat['shortid']].to_html()
+    algtable = ALG[ALG.patid == pat['patid']].to_html()
     algtable = algtable.replace(
         'dataframe', 'dataframe table table-bordered table-hover')
     infotable = DataFrame([
@@ -26,9 +26,13 @@ def render_pattern(pat):
     infotable = infotable.replace(
         '&gt;', '>')
     template = ENV.get_template('pattern.html')
+    context = {'stage': 'f2l'}
+    context.update(pat)
     s = template.render(
+        algcol=10,
         algtable=algtable,
-        infotable=infotable, **pat)
+        infotable=infotable,
+        **context)
     return s
     
 def main():
@@ -38,7 +42,8 @@ def main():
         try:
             content += render_pattern(pat)
         except Exception as exc:
-            print(repr(exc))
+            #print(repr(exc))
+            pass
             
     template = ENV.get_template('base.html')
     page = template.render(content=content)

@@ -3,13 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>BirdF2L 0.9</title>
+        <title>BirdF2L 0.9.9</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.min.css">
         <style>
-         * { font-size: 14pt; }
+         * {
+             font-family: monospace;
+             font-size: 12pt;
+         }
          table.dataTable {
              border-collapse: collapse !important;
              margin-top: 0 !important;
@@ -18,7 +21,7 @@
          .dataframe tr > th:nth-child(2),
          .dataframe tr > td:nth-child(2),
          .table-small tr > th { display: none; }
-         .dataframe td:nth-child(9) { width: 50%; }
+         .dataframe td:nth-child(10) { width: 50%; }
          .bf-tiny-table,
          .bf-tiny-table td {
              border: 0;
@@ -32,14 +35,6 @@
              padding: 0;
          }
          dt { float: right; font-weight: normal; }
-         code, samp { font-size: 14pt; }
-         .canon { color: #00cc66; }
-         .xs-alg { height: 10em; }
-         .sm-alg { height: 20em; }
-         .md-alg { height: 30em; }
-         .lg-alg { height: 40em; }
-         .xl-alg { height: 50em; }
-         .card-body > samp { font-size: x-large; }
          table.bf-nav-table tr td { width: 33%; } 
         </style>
     </head>
@@ -242,7 +237,7 @@
              
              $('.bf-pattern').each(function(index, value){
                  var $e = $(value);
-                 var alg = $e.find('td:nth-child(9)')[0].textContent;
+                 var alg = $e.find('td:nth-child(10)')[0].textContent;
                  var src = "https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?";
                  src += $.param({
                      'fmt': 'png',

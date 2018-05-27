@@ -118,7 +118,10 @@ def from_legacy(speffz_legacy_id):
                 kop[3], jop[3],
             ])
             speffz_id = '/'.join([ceop, jkop])
-
+    elif len(parts) == 5:
+        raise ValueError("Full cube algs not supported yet")
+    elif len(parts) == 6:
+        raise ValueError("Rotation algs not supported yet")
     else:
         raise ValueError
     return speffz_id

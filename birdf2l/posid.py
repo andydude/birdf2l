@@ -4,5 +4,13 @@ from birdf2l.plugins import speffz
 
 
 def posid(alg):
-    pos = Pos.from_alg(str(Alg(alg).inverse()))
-    return speffz.from_id(pos.to_id())
+    """
+    F2L position identifiers 
+    are defined as 
+    the Speffz code (short) 
+    of the inverse 
+    of the given algorithm.
+    """
+    antialg = str(Alg(alg).inverse())
+    pos = Pos.from_alg(antialg)
+    return speffz.encode(pos)

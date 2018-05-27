@@ -1,89 +1,24 @@
-ID = {}
-ALPHA = "_ABCDEFGHIJKLMNOPQRSTUVWX"
+from .parallel import is_alt, is_opp
 
-def is_alt(side, side2):
-    side, side2 = side[0], side2[0]
-    return side == side2
+BONUS_U = 0.2
+BONUS_ALT = 0.4  # Alternating bonus (R U R' U')
+BONUS_PAR = 0.2  # Parallel bonus (L R')
+PENALTY_D = 0.2
+PENALTY_2 = 0.5
 
-def is_opp(side, side2):
-    side, side2 = side[0], side2[0]
-    if ord(side) > ord(side2):
-        side, side2 = side2, side
-    if side == 'D' and side2 == 'U':
-        return True
-    elif side == 'L' and side2 == 'R':
-        return True
-    elif side == 'B' and side2 == 'F':
-        return True
-    else:
-        return False
 
 def speed(alg):
     moves = alg.split(' ')
     speed = [1 for _ in moves]
     for i, move in enumerate(moves):
         if 'U' in move:
-            speed[i] = 0.8
+            speed[i] = (1.0 - BONUS_U)
         if 'D' in move:
-            speed[i] = 1.2
+            speed[i] = (1.0 + PENALTY_D)
         if '2' in move:
-            speed[i] *= 1.5
+            speed[i] *= (1.0 + PENALTY_2)
         if i >= 2 and is_alt(move, moves[i - 2]):
-            speed[i] *= 0.6
+            speed[i] *= (1.0 - BONUS_ALT)
         if i >= 1 and is_opp(move, moves[i - 1]):
-            speed[i] *= 0.8
+            speed[i] *= (1.0 - BONUS_PAR)
     return round(sum(speed), 2)
-
-def algid(nmoves):
-    if not nmoves in ID:
-        ID[nmoves] = 0
-    ID[nmoves] += 1
-    return 'V-{}{}'.format(
-        ALPHA[nmoves], ID[nmoves])
-
-if __name__ == '__main__':
-    import sys
-    #from .oldposid import oldposid
-    #from .posid import posid
-    from .notes import notes
-
-    #algid
-    #posid
-    #patid
-    #alg = sys.stdin.read()
-    #print(speed(alg))
-    lines = sys.stdin.read()
-    for line in lines.split('\n'):
-        try:
-            parts = line.split(',')
-            alg = parts[5]
-            if not alg:
-                raise ValueError
-            if 'speed' in parts[1]:
-                raise ValueError
-            nmoves = alg.count(' ') + 1
-            gen = notes(alg)
-            if gen and gen not in (parts[6] or ''):
-                if parts[6]:
-                    parts[6] = gen + ' ' + parts[6]
-                else:
-                    parts[6] = gen
-            parts[3] = str(algid(nmoves))
-            parts[1] = str(speed(alg))
-            parts = [
-                '', # id
-                speed,
-                stm,
-                htm,
-                qtm,
-                algid,
-                posid,
-                patid,
-                alg,
-                notes]                
-            print(','.join(parts))
-        except Exception as exc:
-            # print("# " + repr(exc))
-            print(line)
-
-

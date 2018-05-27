@@ -1,0 +1,5673 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>BirdF2L 0.9.9</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.min.css">
+        <style>
+         * {
+             font-family: monospace;
+             font-size: 12pt;
+         }
+         table.dataTable {
+             border-collapse: collapse !important;
+             margin-top: 0 !important;
+         }
+         .dataframe tr > th:nth-child(1),
+         .dataframe tr > th:nth-child(2),
+         .dataframe tr > td:nth-child(2),
+         .table-small tr > th { display: none; }
+         .dataframe td:nth-child(10) { width: 50%; }
+         .bf-tiny-table,
+         .bf-tiny-table td {
+             border: 0;
+             margin: 0;
+             padding: 0;
+         }
+         .table-small,
+         .table-small td {
+             border: 0;
+             margin: 0;
+             padding: 0;
+         }
+         dt { float: right; font-weight: normal; }
+         table.bf-nav-table tr td { width: 33%; } 
+        </style>
+    </head>
+    <body id="home">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#top">BirdF2L</a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#aboutModal">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            U-Sexy
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-1D1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0A2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U%20R%27" width="64px"/></a>
+                                <samp>T</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1A0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20L%27%20U2%20L%20F" width="64px"/></a>
+                                <a href="#pattern-0D0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20B%20U2%20B%27%20R%27" width="64px"/></a>
+                                <samp>V</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1A1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%27%20F%20U%27%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0D2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U%20R%27%20U%20R%20U%20R%27" width="64px"/></a>
+                                <samp>R</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1D2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%27%20F%20U%20F%27%20U2%20F" width="64px"/></a>
+                                <a href="#pattern-0A1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U%20R%27%20U%27%20R%20U2%20R%27" width="64px"/></a>
+                                <samp>Q</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1D0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20F%27%20U2%20F%20U%27%20F%27%20U%20F" width="64px"/></a>
+                                <a href="#pattern-0A0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20R%20U2%20R%27%20U%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>U</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1A2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U2%20F%20U%20F%27%20U2%20F" width="64px"/></a>
+                                <a href="#pattern-0D1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U2%20R%27%20U%27%20R%20U2%20R%27" width="64px"/></a>
+                                <samp>S</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            U-Pair
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20F%27%20U%20F" width="64px"/></a>
+                                <a href="#pattern-0B1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>I</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U2%20F%20U%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0B0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U2%20R%27%20U%27%20R%20U%20R%27" width="64px"/></a>
+                                <samp>N</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1B1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%20U2%20F2%20U%27%20F2%20U%27%20F%27" width="64px"/></a>
+                                <a href="#pattern-0C2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%27%20U2%20R2%20U%20R2%20U%20R" width="64px"/></a>
+                                <samp>J</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1B2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U%27%20R%27%20U2%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0C1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%20U2%20R%20U%20R%27" width="64px"/></a>
+                                <samp>K</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%20F%20U%27%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0B2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U%27%20R%27%20U%20R%20U%20R%27" width="64px"/></a>
+                                <samp>L</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1B0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U2%20F2%20U2%20F%20U%20F%27%20U%20F2" width="64px"/></a>
+                                <a href="#pattern-0C0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U2%20R2%20U2%20R%27%20U%27%20R%20U%27%20R2" width="64px"/></a>
+                                <samp>M</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            D-Sexy
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C2V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%27%20F%20U%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0B1V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U%20R%27%20U%27%20R%20U%20R%27" width="64px"/></a>
+                                <samp>F</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C1V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%20U%27%20F%27%20U%20F" width="64px"/></a>
+                                <a href="#pattern-0B2V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U%27%20R%27%20U%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>E</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1C0V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20R%20U%20R%27%20U%27%20F%27%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-0B0V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20F%27%20U%20F%20U%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>A</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            D-Pair
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-0J2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%20F%20U2%20F%27%20U%20F" width="64px"/></a>
+                                <a href="#pattern-0J1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20F%27%20U%27%20F%20U2%20F%27%20U%27%20F" width="64px"/></a>
+                                <samp>G</samp>
+
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1J2C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%20F%27%20U%27%20F%20U%27%20R%20U%20R%27" width="64px"/></a>
+                                <a href="#pattern-1J1C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=U%27%20R%20U%20R%27%20U%20F%27%20U%27%20F" width="64px"/></a>
+                                <samp>H</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1J2V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F2%20L%27%20U%27%20L%20U%20F%20U%27%20F" width="64px"/></a>
+                                <a href="#pattern-1J1V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%27%20U%27%20L%27%20U%20L%20F2" width="64px"/></a>
+                                <samp>D</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-0J2V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U2%20F%27%20U%27%20F%20U%27%20F%27%20U2%20F2" width="64px"/></a>
+                                <a href="#pattern-0J1V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=R%20U2%20R%20U%20R%27%20U%20R%20U2%20R2" width="64px"/></a>
+                                <samp>C</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Other
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="#pattern-1J0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%20U%27%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>Y</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-0J0C"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F2%20U%27%20F2%20U%27%20F2%20U2%20F2" width="64px"/></a>
+                                <samp>X</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="#pattern-1J0V"><img src="https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?fmt=png&bg=w&size=256&sch=ygrwbo&stage=f2l&view=3d&case=F%27%20U%20F%20U%27%20R%20U2%20R%27%20U2%20R%20U%27%20R%27" width="64px"/></a>
+                                <samp>Z</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/andydude/birdf2l">Source</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br/>
+        <br/>
+        <br/>
+        <div class="modal" id="aboutModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">About BirdF2L</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>BirdF2L is a speedcubing algorithm database similar to <a href="http://birdflu.lar5.com/">Birdflu</a>, but instead of Last Layer (LL) algorithms, we are interested in First Two Layer (F2L) algorithms.
+                        </p>
+                        <p>BirdF2L was written by Andrew Robbins, with the speed calculation written by Lars Petrus.
+                        </p>
+                        <p>Send comments and questions to and_j_rob@yahoo.com.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        
+                <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbBcDdPj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2417</th>
+      <td></td>
+      <td>8.56</td>
+      <td>11</td>
+      <td>11</td>
+      <td>13</td>
+      <td>V-K91</td>
+      <td>AjBbPcDd/Ma</td>
+      <td>Ma</td>
+      <td>L' U2 R U R' U2 L U' R U R'</td>
+      <td>RUL</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbBcFdVj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1391</th>
+      <td></td>
+      <td>7.96</td>
+      <td>9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J478</td>
+      <td>BbVjFcAd/Ma</td>
+      <td>Ma</td>
+      <td>R U L R' U' R' U L' U' R</td>
+      <td>RUL</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbBcIdKj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>608</th>
+      <td></td>
+      <td>8.0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>V-I151</td>
+      <td>AdIbBjKc/Ma</td>
+      <td>Ma</td>
+      <td>L' R D L U L' D' L R'</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbBcIeKp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>338</th>
+      <td></td>
+      <td>7.0</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H165</td>
+      <td>BbKcApIe/Ma</td>
+      <td>Ma</td>
+      <td>U' B F2 L F L' B' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1560</th>
+      <td></td>
+      <td>8.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J647</td>
+      <td>IeBbKcAp/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' F' U' F U R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbBdDiPp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>636</th>
+      <td></td>
+      <td>7.48</td>
+      <td>7</td>
+      <td>9</td>
+      <td>9</td>
+      <td>V-I179</td>
+      <td>PdAiBbDp/Ma</td>
+      <td>Ma</td>
+      <td>R U L R' U F U' F' L'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1426</th>
+      <td></td>
+      <td>7.44</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J513</td>
+      <td>AiBbDpPd/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U' F U R U' R' F'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbBdFiVp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1975</th>
+      <td></td>
+      <td>7.04</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J1062</td>
+      <td>BbViFdAp/Ma</td>
+      <td>Ma</td>
+      <td>U' F' U R U R' U' R' F R</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbBdIiKp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1753</th>
+      <td></td>
+      <td>7.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J840</td>
+      <td>AdIiBbKp/Ma</td>
+      <td>Ma</td>
+      <td>U F R' F' U' F' U F2 R F'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbBeDiPj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>438</th>
+      <td></td>
+      <td>6.24</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H265</td>
+      <td>DjAiPeBb/Ma</td>
+      <td>Ma</td>
+      <td>U2 R U B U' B' U' R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbBeFiVj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>233</th>
+      <td></td>
+      <td>6.9</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H60</td>
+      <td>AiVeFjBb/Ma</td>
+      <td>Ma</td>
+      <td>R U B L' B L B2 R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>247</th>
+      <td></td>
+      <td>6.7</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H74</td>
+      <td>FjBbAiVe/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' F2 L F L' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1520</th>
+      <td></td>
+      <td>7.38</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J607</td>
+      <td>FjBbAiVe/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' U' R' F R F2 U F</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbDcNdVj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1393</th>
+      <td></td>
+      <td>7.2</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J480</td>
+      <td>AbVjDdNc/Ma</td>
+      <td>Ma</td>
+      <td>R U R' F U F' U F U2 F'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbFcKdNj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>27</th>
+      <td></td>
+      <td>4.68</td>
+      <td>5</td>
+      <td>6</td>
+      <td>6</td>
+      <td>V-F18</td>
+      <td>AbFjKcNd/Ma</td>
+      <td>Ma</td>
+      <td>L' R U R' U' L</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td></td>
+      <td>5.2</td>
+      <td>7</td>
+      <td>7</td>
+      <td>9</td>
+      <td>V-G69</td>
+      <td>AbKcFjNd/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' U R U2 R'</td>
+      <td>RU</td>
+    </tr>
+    <tr>
+      <th>1407</th>
+      <td></td>
+      <td>7.36</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J494</td>
+      <td>AjKbFcNd/Ma</td>
+      <td>Ma</td>
+      <td>R U R' F' U2 F U F' U F</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbFcKeNp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1915</th>
+      <td></td>
+      <td>9.64</td>
+      <td>10</td>
+      <td>10</td>
+      <td>15</td>
+      <td>V-J1002</td>
+      <td>NbAcFpKe/Ma</td>
+      <td>Ma</td>
+      <td>U R2 U2 F R2 F' U2 R' U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbFcPdQj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2296</th>
+      <td></td>
+      <td>8.64</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J1383</td>
+      <td>QjPdAbFc/Ma</td>
+      <td>Ma</td>
+      <td>U2 R' U' F U R2 U' R2 F' R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>2445</th>
+      <td></td>
+      <td>6.72</td>
+      <td>11</td>
+      <td>11</td>
+      <td>11</td>
+      <td>V-K119</td>
+      <td>FbQcAjPd/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' U' R U R' U' R U' R'</td>
+      <td>RU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbIcNdPj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2615</th>
+      <td></td>
+      <td>11.08</td>
+      <td>11</td>
+      <td>11</td>
+      <td>16</td>
+      <td>V-K289</td>
+      <td>PcAdIbNj/Ma</td>
+      <td>Ma</td>
+      <td>U R2 L' U' L U' F2 R' F2 U2 R2</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AbIcQdVj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>665</th>
+      <td></td>
+      <td>6.78</td>
+      <td>9</td>
+      <td>9</td>
+      <td>13</td>
+      <td>V-I208</td>
+      <td>AjVbIcQd/Ma</td>
+      <td>Ma</td>
+      <td>R U' R2 U' R2 U' R2 U2 R</td>
+      <td>RU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AcBdDmPp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>242</th>
+      <td></td>
+      <td>6.26</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H69</td>
+      <td>PdApBcDm/Ma</td>
+      <td>Ma</td>
+      <td>R U R2 U' F' U F R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>355</th>
+      <td></td>
+      <td>5.68</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H182</td>
+      <td>DmPpBdAc/Ma</td>
+      <td>Ma</td>
+      <td>U' F' U2 F U R U' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>2306</th>
+      <td></td>
+      <td>7.68</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J1393</td>
+      <td>AcDmPpBd/Ma</td>
+      <td>Ma</td>
+      <td>U2 R' U2 R U R' U F R F'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AcBdImKp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1599</th>
+      <td></td>
+      <td>8.8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>14</td>
+      <td>V-J686</td>
+      <td>AmIpKcBd/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R2 F' U' F U R2 U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AcBeFjVm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1758</th>
+      <td></td>
+      <td>9.28</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J845</td>
+      <td>BjAmVeFc/Ma</td>
+      <td>Ma</td>
+      <td>U F R2 F' U R U' F R2 F'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AcFdKmNp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>358</th>
+      <td></td>
+      <td>6.16</td>
+      <td>8</td>
+      <td>8</td>
+      <td>11</td>
+      <td>V-H185</td>
+      <td>NpAcFdKm/Ma</td>
+      <td>Ma</td>
+      <td>U' F' U2 F U2 R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AcFeKjNm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1596</th>
+      <td></td>
+      <td>8.02</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J683</td>
+      <td>FmNcAjKe/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R2 F R F' U' F' U2 F</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AcIdQmVp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>944</th>
+      <td></td>
+      <td>8.5</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J31</td>
+      <td>IdVcQmAp/Ma</td>
+      <td>Ma</td>
+      <td>F R' F R2 F U F' R2 F2 R</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AdBiDjPm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>95</th>
+      <td></td>
+      <td>5.36</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>V-G50</td>
+      <td>PmAiBjDd/Ma</td>
+      <td>Ma</td>
+      <td>R U B U B' U' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>637</th>
+      <td></td>
+      <td>7.48</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>V-I180</td>
+      <td>PiAdBjDm/Ma</td>
+      <td>Ma</td>
+      <td>R U L' R' B' U' B U L</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1411</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J498</td>
+      <td>DdPmAiBj/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U F R U R' U' F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1450</th>
+      <td></td>
+      <td>7.6</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J537</td>
+      <td>BjDmPiAd/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U2 R' F' U' F U R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1486</th>
+      <td></td>
+      <td>7.6</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J573</td>
+      <td>PmAiBjDd/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' F' U F U2 R U' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1678</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J765</td>
+      <td>DjAmPiBd/Ma</td>
+      <td>Ma</td>
+      <td>R' U' F' U F R U2 R U' R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>AeIiNmPp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>681</th>
+      <td></td>
+      <td>8.9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>V-I224</td>
+      <td>PpAiImNe/Ma</td>
+      <td>Ma</td>
+      <td>R' D' L F L' D R2 U R'</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbDcEdKj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td></td>
+      <td>2.4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>V-C2</td>
+      <td>DdBbEjKc/Ma</td>
+      <td>Ma</td>
+      <td>R U R'</td>
+      <td>RU Sexy-3</td>
+    </tr>
+    <tr>
+      <th>284</th>
+      <td></td>
+      <td>7.82</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H111</td>
+      <td>DdBbEjKc/Ma</td>
+      <td>Ma</td>
+      <td>U F R2 D R D' F' R</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>579</th>
+      <td></td>
+      <td>9.2</td>
+      <td>9</td>
+      <td>9</td>
+      <td>15</td>
+      <td>V-I122</td>
+      <td>BdKbEjDc/Ma</td>
+      <td>Ma</td>
+      <td>F2 R2 F2 R U R' F2 R2 F2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>722</th>
+      <td></td>
+      <td>8.78</td>
+      <td>9</td>
+      <td>9</td>
+      <td>14</td>
+      <td>V-I265</td>
+      <td>DbBjKcEd/Ma</td>
+      <td>Ma</td>
+      <td>R2 F2 R' U R' U' R2 F2 R2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>729</th>
+      <td></td>
+      <td>6.44</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>V-I272</td>
+      <td>DdBjEcKb/Ma</td>
+      <td>Ma</td>
+      <td>R2 U R U R U' R' U' R2</td>
+      <td>RU</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td></td>
+      <td>6.88</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>V-I299</td>
+      <td>DdBbEjKc/Ma</td>
+      <td>Ma</td>
+      <td>U F R' F' R U F' U' F</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1249</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J336</td>
+      <td>KdDbBcEj/Ma</td>
+      <td>Ma</td>
+      <td>F' U2 F U F' U F R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1360</th>
+      <td></td>
+      <td>8.08</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J447</td>
+      <td>KcDdEjBb/Ma</td>
+      <td>Ma</td>
+      <td>R F U' R' U' R U F' U2 R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1920</th>
+      <td></td>
+      <td>7.7</td>
+      <td>10</td>
+      <td>10</td>
+      <td>15</td>
+      <td>V-J1007</td>
+      <td>DjBdEbKc/Ma</td>
+      <td>Ma</td>
+      <td>U R2 U2 R2 U' R U R U2 R2</td>
+      <td>RU</td>
+    </tr>
+    <tr>
+      <th>2420</th>
+      <td></td>
+      <td>9.72</td>
+      <td>12</td>
+      <td>11</td>
+      <td>13</td>
+      <td>V-K94</td>
+      <td>DjBcEdKb/Ma</td>
+      <td>Ma</td>
+      <td>R U L U2 L' R' B' F' U2 B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2936</th>
+      <td></td>
+      <td>11.8</td>
+      <td>13</td>
+      <td>12</td>
+      <td>15</td>
+      <td>V-L20</td>
+      <td>DjBcEdKb/Ma</td>
+      <td>Ma</td>
+      <td>R U L' R2 U2 L R B F U2 B' F'</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbDcEeKp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>197</th>
+      <td></td>
+      <td>6.5</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H24</td>
+      <td>BbKeEcDp/Ma</td>
+      <td>Ma</td>
+      <td>F' U F R B' R B R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>518</th>
+      <td></td>
+      <td>7.3</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>V-I61</td>
+      <td>DpBbKeEc/Ma</td>
+      <td>Ma</td>
+      <td>F' U F R U R2 F R F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1251</th>
+      <td></td>
+      <td>8.16</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J338</td>
+      <td>BeEbKcDp/Ma</td>
+      <td>Ma</td>
+      <td>F' U2 F U R U' R' F' U2 F</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1266</th>
+      <td></td>
+      <td>8.24</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J353</td>
+      <td>DbBeEcKp/Ma</td>
+      <td>Ma</td>
+      <td>F' U2 F U2 R U2 R' F' U' F</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbDcRdVj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>165</th>
+      <td></td>
+      <td>5.88</td>
+      <td>7</td>
+      <td>7</td>
+      <td>8</td>
+      <td>V-G120</td>
+      <td>VcRjDdBb/Ma</td>
+      <td>Ma</td>
+      <td>U2 L R U' R' U L'</td>
+      <td>RUL</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbEcFdPj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1699</th>
+      <td></td>
+      <td>8.4</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J786</td>
+      <td>BbFjEcPd/Ma</td>
+      <td>Ma</td>
+      <td>R2 F R' U R F' R2 F U' F'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbEcFePp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>168</th>
+      <td></td>
+      <td>6.0</td>
+      <td>7</td>
+      <td>7</td>
+      <td>9</td>
+      <td>V-G123</td>
+      <td>BbPpEeFc/Ma</td>
+      <td>Ma</td>
+      <td>U2 R U B U2 B' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>254</th>
+      <td></td>
+      <td>6.08</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H81</td>
+      <td>BbPpEeFc/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' U' R' F R F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>354</th>
+      <td></td>
+      <td>5.92</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H181</td>
+      <td>PpEeBbFc/Ma</td>
+      <td>Ma</td>
+      <td>U' F' U2 F R' F R F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>679</th>
+      <td></td>
+      <td>7.6</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>V-I222</td>
+      <td>PpEeFcBb/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' F' U' F R U' R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbEcIdVj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2399</th>
+      <td></td>
+      <td>10.0</td>
+      <td>11</td>
+      <td>11</td>
+      <td>13</td>
+      <td>V-K73</td>
+      <td>VdBbIjEc/Ma</td>
+      <td>Ma</td>
+      <td>F2 L' B' L F2 L' B L R U R'</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbEcIeVp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>640</th>
+      <td></td>
+      <td>6.88</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>V-I183</td>
+      <td>BbIpVeEc/Ma</td>
+      <td>Ma</td>
+      <td>R U R' F R U R' U' F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1422</th>
+      <td></td>
+      <td>7.36</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J509</td>
+      <td>EcBpIeVb/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U R' F' U' F U R</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbEdIiVp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1435</th>
+      <td></td>
+      <td>7.04</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J522</td>
+      <td>IbViEdBp/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U' R' U' F' U F R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1458</th>
+      <td></td>
+      <td>7.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J545</td>
+      <td>BdIiVbEp/Ma</td>
+      <td>Ma</td>
+      <td>R U R2 U' F R' F' R U R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>2090</th>
+      <td></td>
+      <td>8.06</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J1177</td>
+      <td>IiVbEpBd/Ma</td>
+      <td>Ma</td>
+      <td>U' R' U' F U R U' F2 U2 F</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbEeFiPj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1512</th>
+      <td></td>
+      <td>7.36</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J599</td>
+      <td>FeBbPiEj/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' U' F' U F R U' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>2268</th>
+      <td></td>
+      <td>8.02</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J1355</td>
+      <td>FjEbPiBe/Ma</td>
+      <td>Ma</td>
+      <td>U2 R U2 R' F R' F' R2 U R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbEeIiVj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1439</th>
+      <td></td>
+      <td>7.68</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J526</td>
+      <td>VeEjBiIb/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U2 F U R U' R' F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1502</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J589</td>
+      <td>BbIiVjEe/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' U F' U' F R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1528</th>
+      <td></td>
+      <td>7.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J615</td>
+      <td>BbIiVjEe/Ma</td>
+      <td>Ma</td>
+      <td>R U' R2 F R F' U' R U' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1565</th>
+      <td></td>
+      <td>8.4</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J652</td>
+      <td>VjEeBbIi/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' F' U2 F U R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbFcKdRj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>627</th>
+      <td></td>
+      <td>8.0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>V-I170</td>
+      <td>KdBbFjRc/Ma</td>
+      <td>Ma</td>
+      <td>R U B' R' F R B R' F'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2029</th>
+      <td></td>
+      <td>8.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J1116</td>
+      <td>KdBbFjRc/Ma</td>
+      <td>Ma</td>
+      <td>U' R F R' U R U' F' U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbFeKiRj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1944</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J1031</td>
+      <td>KiBbFeRj/Ma</td>
+      <td>Ma</td>
+      <td>U' F U R U' R' F' R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbIcPdRj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>106</th>
+      <td></td>
+      <td>4.56</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>V-G61</td>
+      <td>RcPdIjBb/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' U' R U' R'</td>
+      <td>RU</td>
+    </tr>
+    <tr>
+      <th>1370</th>
+      <td></td>
+      <td>7.28</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J457</td>
+      <td>IjBbRcPd/Ma</td>
+      <td>Ma</td>
+      <td>R F' U' F U' F' U2 F U' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1404</th>
+      <td></td>
+      <td>7.2</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J491</td>
+      <td>RcPbIdBj/Ma</td>
+      <td>Ma</td>
+      <td>R U R' F' U' F U' F' U2 F</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BbIdPiRp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>430</th>
+      <td></td>
+      <td>6.8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H257</td>
+      <td>RdPpIiBb/Ma</td>
+      <td>Ma</td>
+      <td>U2 L F' L' U' L F L'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1241</th>
+      <td></td>
+      <td>7.6</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J328</td>
+      <td>RdIiBbPp/Ma</td>
+      <td>Ma</td>
+      <td>F' U2 F R' F R F' R U' R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BcDeRjVm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1945</th>
+      <td></td>
+      <td>8.36</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J1032</td>
+      <td>RmDjBeVc/Ma</td>
+      <td>Ma</td>
+      <td>U' F U R U' R2 F' R2 U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BcEeFjPm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1761</th>
+      <td></td>
+      <td>10.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J848</td>
+      <td>EjPmBeFc/Ma</td>
+      <td>Ma</td>
+      <td>U F R2 U F' R F U' R2 F'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BcFeKjRm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>285</th>
+      <td></td>
+      <td>6.26</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H112</td>
+      <td>RmBjKeFc/Ma</td>
+      <td>Ma</td>
+      <td>U F U R U' R2 F' R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>657</th>
+      <td></td>
+      <td>7.3</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>V-I200</td>
+      <td>KmRcBjFe/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' F R' F' R2 U2 R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>677</th>
+      <td></td>
+      <td>7.6</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>V-I220</td>
+      <td>RmKcBeFj/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' F' U F R U' R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BcIdPmRp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1455</th>
+      <td></td>
+      <td>8.02</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J542</td>
+      <td>RmIpBdPc/Ma</td>
+      <td>Ma</td>
+      <td>R U R2 F R F' U2 F' U2 F</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BcIePjRm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1714</th>
+      <td></td>
+      <td>8.68</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J801</td>
+      <td>PeBjIcRm/Ma</td>
+      <td>Ma</td>
+      <td>R2 U' F R F' R' U2 R U' R2</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BdDiEjKm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>988</th>
+      <td></td>
+      <td>9.2</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J75</td>
+      <td>DmBiEjKd/Ma</td>
+      <td>Ma</td>
+      <td>F R2 F' U R U F' U2 F R2</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BdEiIjVm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1516</th>
+      <td></td>
+      <td>7.6</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J603</td>
+      <td>VmEjBdIi/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' U' F' U2 F R U' R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>BdFiKjRm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1677</th>
+      <td></td>
+      <td>7.6</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J764</td>
+      <td>KmBdFiRj/Ma</td>
+      <td>Ma</td>
+      <td>R' U' F' U F R U' R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>DbEcNdPj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>651</th>
+      <td></td>
+      <td>8.1</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>V-I194</td>
+      <td>DdEbPjNc/Ma</td>
+      <td>Ma</td>
+      <td>R U' R D R' U2 R D' R2</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>DbEeNiPj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>662</th>
+      <td></td>
+      <td>7.3</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>V-I205</td>
+      <td>PiEeNjDb/Ma</td>
+      <td>Ma</td>
+      <td>R U' R2 F R F' R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>DbKcNeRp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1434</th>
+      <td></td>
+      <td>7.36</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J521</td>
+      <td>DbKeRpNc/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U' R' F' U' F U R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1436</th>
+      <td></td>
+      <td>8.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J523</td>
+      <td>KcReNpDb/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U2 F R U R' U' F'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>DbPcQdRj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>647</th>
+      <td></td>
+      <td>6.18</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>V-I190</td>
+      <td>RdPcDbQj/Ma</td>
+      <td>Ma</td>
+      <td>R U R2 U' R U' R' U2 R</td>
+      <td>RU</td>
+    </tr>
+    <tr>
+      <th>2096</th>
+      <td></td>
+      <td>6.66</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J1183</td>
+      <td>QjRdPcDb/Ma</td>
+      <td>Ma</td>
+      <td>U' R' U2 R U R' U R2 U' R'</td>
+      <td>RU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>DcEdNmPp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1382</th>
+      <td></td>
+      <td>8.58</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J469</td>
+      <td>PpDdEmNc/Ma</td>
+      <td>Ma</td>
+      <td>R U F R2 F' R U R2 U' R2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1454</th>
+      <td></td>
+      <td>7.38</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J541</td>
+      <td>NdPpEcDm/Ma</td>
+      <td>Ma</td>
+      <td>R U R2 F R F' U' F' U F</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>DcKdNmRp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>642</th>
+      <td></td>
+      <td>7.28</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>V-I185</td>
+      <td>NpDdKmRc/Ma</td>
+      <td>Ma</td>
+      <td>R U R' F U R U' R' F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1065</th>
+      <td></td>
+      <td>6.96</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J152</td>
+      <td>RdDpKmNc/Ma</td>
+      <td>Ma</td>
+      <td>F' U F R U R' U R U' R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>DcKeNjRm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1423</th>
+      <td></td>
+      <td>7.04</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J510</td>
+      <td>RcNmDjKe/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U R' U' F' U F R</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>DdKiNjRm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1460</th>
+      <td></td>
+      <td>7.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J547</td>
+      <td>NdDjKiRm/Ma</td>
+      <td>Ma</td>
+      <td>R U R2 U' R' F R F' U R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1484</th>
+      <td></td>
+      <td>7.6</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J571</td>
+      <td>NiDdKjRm/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' F' U F U' R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1573</th>
+      <td></td>
+      <td>8.58</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J660</td>
+      <td>NiDdKjRm/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' U F R' F' R2 U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EbFcKdQj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>993</th>
+      <td></td>
+      <td>9.3</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J80</td>
+      <td>QjEbFcKd/Ma</td>
+      <td>Ma</td>
+      <td>F R2 U F' R F U' R F' R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>2039</th>
+      <td></td>
+      <td>8.18</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J1126</td>
+      <td>KdEcQbFj/Ma</td>
+      <td>Ma</td>
+      <td>U' R U R D R' U R D' R2</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EbFcNdVj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>649</th>
+      <td></td>
+      <td>6.18</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>V-I192</td>
+      <td>EdVjFcNb/Ma</td>
+      <td>Ma</td>
+      <td>R U R2 U2 R U R' U R</td>
+      <td>RU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EbFeKiQj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>638</th>
+      <td></td>
+      <td>7.48</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>V-I181</td>
+      <td>KbEiQjFe/Ma</td>
+      <td>Ma</td>
+      <td>R U L' R' U' B' U B L</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>680</th>
+      <td></td>
+      <td>8.0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>V-I223</td>
+      <td>QiFjKbEe/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' F' U2 F R U' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1451</th>
+      <td></td>
+      <td>7.28</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J538</td>
+      <td>QjFeKbEi/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U2 R' U' F' U F R</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EbIcKdNj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>673</th>
+      <td></td>
+      <td>8.1</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>V-I216</td>
+      <td>NdEbIjKc/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R D R' U' R D' R2</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EbIcPdQj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1369</th>
+      <td></td>
+      <td>8.32</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J456</td>
+      <td>QcPdIbEj/Ma</td>
+      <td>Ma</td>
+      <td>R F' U R' U R U2 F U2 R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1395</th>
+      <td></td>
+      <td>7.36</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J482</td>
+      <td>EjPdIbQc/Ma</td>
+      <td>Ma</td>
+      <td>R U R' F U2 F' U' F U' F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1703</th>
+      <td></td>
+      <td>9.64</td>
+      <td>10</td>
+      <td>10</td>
+      <td>14</td>
+      <td>V-J790</td>
+      <td>QcIbEjPd/Ma</td>
+      <td>Ma</td>
+      <td>R2 U F' U2 R' U2 R F U' R2</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EbIdPiQp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>249</th>
+      <td></td>
+      <td>5.92</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H76</td>
+      <td>PdQpIiEb/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' U2 R' F R F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1513</th>
+      <td></td>
+      <td>7.36</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J600</td>
+      <td>QpIiEbPd/Ma</td>
+      <td>Ma</td>
+      <td>R U' R' U' F' U' F R U' R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EcFdNmVp/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1068</th>
+      <td></td>
+      <td>7.44</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J155</td>
+      <td>VpNcEmFd/Ma</td>
+      <td>Ma</td>
+      <td>F' U F R U R' U2 R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EcFeKjQm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>33</th>
+      <td></td>
+      <td>5.28</td>
+      <td>6</td>
+      <td>6</td>
+      <td>7</td>
+      <td>V-F24</td>
+      <td>KcEeQjFm/Ma</td>
+      <td>Ma</td>
+      <td>R U2 B U' B' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1413</th>
+      <td></td>
+      <td>7.44</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J500</td>
+      <td>FmKcEeQj/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U F U R U' R' F'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1587</th>
+      <td></td>
+      <td>8.4</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J674</td>
+      <td>KcEeQjFm/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' U2 F' U' F R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EcFeNjVm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1554</th>
+      <td></td>
+      <td>8.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J641</td>
+      <td>NcFjEeVm/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' F' U F U R U2 R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EcIeKjNm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1158</th>
+      <td></td>
+      <td>7.38</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>V-J245</td>
+      <td>NcEeIjKm/Ma</td>
+      <td>Ma</td>
+      <td>F' U' F U F R' F' R2 U R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1537</th>
+      <td></td>
+      <td>8.16</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>V-J624</td>
+      <td>NcKeImEj/Ma</td>
+      <td>Ma</td>
+      <td>R U' R2 U' F' U F R2 U' R'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>EdFiKjQm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>241</th>
+      <td></td>
+      <td>6.58</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H68</td>
+      <td>KdEiQmFj/Ma</td>
+      <td>Ma</td>
+      <td>R U R2 F' U' F U R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>635</th>
+      <td></td>
+      <td>7.48</td>
+      <td>7</td>
+      <td>9</td>
+      <td>9</td>
+      <td>V-I178</td>
+      <td>KdEjQiFm/Ma</td>
+      <td>Ma</td>
+      <td>R U L R' F U F' U' L'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1424</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>V-J511</td>
+      <td>EjQiFmKd/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U' F R U R' U' F'</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>FbNcPdRj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>886</th>
+      <td></td>
+      <td>7.66</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>V-I429</td>
+      <td>RjNdPbFc/Ma</td>
+      <td>Ma</td>
+      <td>U2 L R U' R2 U L' U' R</td>
+      <td>RUL</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>FcNePjRm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1390</th>
+      <td></td>
+      <td>8.14</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>V-J477</td>
+      <td>RjPeFmNc/Ma</td>
+      <td>Ma</td>
+      <td>R U F' U2 F U2 F R2 F' R</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>IbKcQdRj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2425</th>
+      <td></td>
+      <td>6.96</td>
+      <td>11</td>
+      <td>11</td>
+      <td>12</td>
+      <td>V-K99</td>
+      <td>QcRjKdIb/Ma</td>
+      <td>Ma</td>
+      <td>R U R' U R' U' R U' R' U2 R</td>
+      <td>RU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>IbNcRdVj/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2454</th>
+      <td></td>
+      <td>7.36</td>
+      <td>11</td>
+      <td>11</td>
+      <td>13</td>
+      <td>V-K128</td>
+      <td>IcNdRjVb/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R' U R U' R' U R U2 R'</td>
+      <td>RU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>        <a id="pattern-"/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="bf-pattern">
+            <div class="card float-right" style="width: 20%;">
+                <img class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Pattern </h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Orientation</td>
+      <td><samp>IcKeQjRm/Ma</samp></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pattern</td>
+      <td><samp>Ma</samp></td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </div><!-- /.card -->
+            <div class="container-fluid" width="80%">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>235</th>
+      <td></td>
+      <td>7.1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>V-H62</td>
+      <td>RmKcIjQe/Ma</td>
+      <td>Ma</td>
+      <td>R U B2 L' B' L B' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>256</th>
+      <td></td>
+      <td>7.0</td>
+      <td>8</td>
+      <td>8</td>
+      <td>11</td>
+      <td>V-H83</td>
+      <td>RjKcIeQm/Ma</td>
+      <td>Ma</td>
+      <td>R U2 R2 F R F2 U F</td>
+      <td>RFU</td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.container -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js" async></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+         $(function(){
+             $('.dataframe').DataTable({
+                 paging: false,
+                 searching: false,
+                 order: [[2, 'asc']],
+             });
+             
+             $('.bf-pattern').each(function(index, value){
+                 var $e = $(value);
+                 var alg = $e.find('td:nth-child(10)')[0].textContent;
+                 var src = "https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?";
+                 src += $.param({
+                     'fmt': 'png',
+                     'bg': 'w',
+                     'size': '256',
+                     'sch': 'ygrwbo',
+                     'stage': 'wv',
+                     'view': 'plan',
+                     'case': alg,
+                 });
+                 $e.find('img').attr('src', src);
+                 $e.find('code').text(alg);
+             });
+         });
+        </script>
+    </body>
+</html>

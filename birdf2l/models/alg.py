@@ -46,6 +46,8 @@ class AlgStep(namedtuple('AlgStep', 'name')):
             return 2
         elif self.is_ccw:
             return -1
+        elif self.name.endswith("'2"):
+            return 2
         else:
             raise ValueError
 
@@ -57,7 +59,7 @@ class AlgStep(namedtuple('AlgStep', 'name')):
         elif self.is_ccw:
             return self.face
         else:
-            raise ValueError
+            raise ValueError(self.name)
 
 
 

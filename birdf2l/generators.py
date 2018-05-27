@@ -52,7 +52,7 @@ def is_rul(alg):
     else:
         return False
     
-def notes(alg):
+def generators(alg):
     if is_ru(alg):
         return "RU"
     elif is_rfu(alg):
