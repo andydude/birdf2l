@@ -132,11 +132,245 @@ class Pos(PosBase):
             cls.init_alg(move + "'", "{} {} {}".format(move, move, move))
 
     def is_f2l(self):
+        try:
+            # cross
+            assert self.eo[8] == 0
+            assert self.eo[9] == 0
+            assert self.eo[10] == 0
+            assert self.eo[11] == 0
+            assert self.ep[8] == 8
+            assert self.ep[9] == 9
+            assert self.ep[10] == 10
+            assert self.ep[11] == 11
+
+            # U slot
+            assert self.eo[4] == 0
+            assert self.ep[4] == 4
+            assert self.co[4] == 0
+            assert self.cp[4] == 4
+            
+            # W slot
+            assert self.eo[6] == 0
+            assert self.ep[6] == 6
+            assert self.co[6] == 0
+            assert self.cp[6] == 6
+            
+            # X slot
+            assert self.eo[7] == 0
+            assert self.ep[7] == 7
+            assert self.co[7] == 0
+            assert self.cp[7] == 7
+            
+            return True
+        except:
+            return False
+
+    def is_f2l_u(self):
+        try:
+            # cross
+            assert self.eo[8] == 0
+            assert self.eo[9] == 0
+            assert self.eo[10] == 0
+            assert self.eo[11] == 0
+            assert self.ep[8] == 8
+            assert self.ep[9] == 9
+            assert self.ep[10] == 10
+            assert self.ep[11] == 11
+
+            # V slot
+            assert self.eo[5] == 0
+            assert self.ep[5] == 5
+            assert self.co[5] == 0
+            assert self.cp[5] == 5
+            
+            # W slot
+            assert self.eo[6] == 0
+            assert self.ep[6] == 6
+            assert self.co[6] == 0
+            assert self.cp[6] == 6
+            
+            # X slot
+            assert self.eo[7] == 0
+            assert self.ep[7] == 7
+            assert self.co[7] == 0
+            assert self.cp[7] == 7
+            
+            return True
+        except:
+            return False
+
+    def is_f2l_w(self):
+        try:
+            assert self.eo[4] == 0
+            assert self.eo[5] == 0
+            assert self.eo[7] == 0
+            assert self.eo[8] == 0
+            assert self.eo[9] == 0
+            assert self.eo[10] == 0
+            assert self.eo[11] == 0
+            assert self.ep[4] == 4
+            assert self.ep[5] == 5
+            assert self.ep[7] == 7
+            assert self.ep[8] == 8
+            assert self.ep[9] == 9
+            assert self.ep[10] == 10
+            assert self.ep[11] == 11
+            assert self.co[4] == 0
+            assert self.co[5] == 0
+            assert self.co[7] == 0
+            assert self.cp[4] == 4
+            assert self.cp[5] == 5
+            assert self.cp[7] == 7
+            return True
+        except:
+            return False
+
+    def is_f2l_x(self):
+        try:
+            assert self.eo[4] == 0
+            assert self.eo[5] == 0
+            assert self.eo[6] == 0
+            assert self.eo[8] == 0
+            assert self.eo[9] == 0
+            assert self.eo[10] == 0
+            assert self.eo[11] == 0
+            assert self.ep[4] == 4
+            assert self.ep[5] == 5
+            assert self.ep[6] == 6
+            assert self.ep[8] == 8
+            assert self.ep[9] == 9
+            assert self.ep[10] == 10
+            assert self.ep[11] == 11
+            assert self.co[4] == 0
+            assert self.co[5] == 0
+            assert self.co[6] == 0
+            assert self.cp[4] == 4
+            assert self.cp[5] == 5
+            assert self.cp[6] == 6
+            return True
+        except:
+            return False
+
+    def is_f2l_uv(self):
+        try:
+            # cross
+            assert self.eo[8] == 0
+            assert self.eo[9] == 0
+            assert self.eo[10] == 0
+            assert self.eo[11] == 0
+            assert self.ep[8] == 8
+            assert self.ep[9] == 9
+            assert self.ep[10] == 10
+            assert self.ep[11] == 11
+
+            assert self.eo[6] == 0
+            assert self.ep[6] == 6
+            assert self.co[6] == 0
+            assert self.cp[6] == 6
+            
+            assert self.eo[7] == 0
+            assert self.ep[7] == 7
+            assert self.co[7] == 0
+            assert self.cp[7] == 7
+            return True
+        except:
+            return False
+
+    def is_f2l_vw(self):
+        try:
+            # cross
+            assert self.eo[8] == 0
+            assert self.eo[9] == 0
+            assert self.eo[10] == 0
+            assert self.eo[11] == 0
+            assert self.ep[8] == 8
+            assert self.ep[9] == 9
+            assert self.ep[10] == 10
+            assert self.ep[11] == 11
+
+            assert self.eo[4] == 0
+            assert self.eo[6] == 0
+            assert self.ep[4] == 4
+            assert self.ep[6] == 6
+            assert self.co[4] == 0
+            assert self.co[6] == 0
+            assert self.cp[4] == 4
+            assert self.cp[6] == 6
+            return True
+        except:
+            return False
+
+    def is_f2l_vx(self):
+        try:
+            assert self.eo[4] == 0
+            assert self.eo[7] == 0
+            assert self.eo[8] == 0
+            assert self.eo[9] == 0
+            assert self.eo[10] == 0
+            assert self.eo[11] == 0
+            assert self.ep[4] == 4
+            assert self.ep[7] == 7
+            assert self.ep[8] == 8
+            assert self.ep[9] == 9
+            assert self.ep[10] == 10
+            assert self.ep[11] == 11
+            assert self.co[4] == 0
+            assert self.co[7] == 0
+            assert self.cp[4] == 4
+            assert self.cp[7] == 7
+            return True
+        except:
+            return False
+        
+    def is_f2l_xu(self):
+        return False
+    
+    def is_f2l_wx(self):
+        return False
+    
+    def is_f2l_uw(self):
         return False
 
-    def is_af2l(self, corners):
-        return False
+    def is_ll(self):
+        try:
+            # cross
+            assert self.eo[8] == 0
+            assert self.eo[9] == 0
+            assert self.eo[10] == 0
+            assert self.eo[11] == 0
+            assert self.ep[8] == 8
+            assert self.ep[9] == 9
+            assert self.ep[10] == 10
+            assert self.ep[11] == 11
 
+            # U slot
+            assert self.eo[4] == 0
+            assert self.ep[4] == 4
+            assert self.co[4] == 0
+            assert self.cp[4] == 4
+            
+            # V slot
+            assert self.eo[5] == 0
+            assert self.ep[5] == 5
+            assert self.co[5] == 0
+            assert self.cp[5] == 5
+            
+            # W slot
+            assert self.eo[6] == 0
+            assert self.ep[6] == 6
+            assert self.co[6] == 0
+            assert self.cp[6] == 6
+            
+            # X slot
+            assert self.eo[7] == 0
+            assert self.ep[7] == 7
+            assert self.co[7] == 0
+            assert self.cp[7] == 7
+            
+            return True
+        except:
+            return False
+    
     def to_pos_id(self):
         return None
 

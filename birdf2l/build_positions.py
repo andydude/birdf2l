@@ -2,6 +2,7 @@ import sys
 import json
 from pandas import read_csv, DataFrame
 from jinja2 import Environment, PackageLoader
+from .oll import ollid
 
 ALG = read_csv("fixtures/alg.csv", dtype=str, keep_default_na=False)
 PAT = read_csv("fixtures/pat.csv", dtype=str, keep_default_na=False)
@@ -10,17 +11,6 @@ ENV = Environment(
     loader=PackageLoader('birdf2l', 'templates'),
 )
 
-
-def ollid(posid):
-    up, slot = posid.split('/')
-    up = ''.join(sorted(list(up)))
-    up = '{}{}{}{}{}{}{}{}'.format(
-        up[0], up[4],
-        up[1], up[5],
-        up[2], up[6],
-        up[3], up[7])
-    return '/'.join([up, slot])
-    
 
 def render_position(pat, oll, pos):
     algtable = ALG[ALG.posid.map(lambda x: ollid(x) == oll['ollid'])].to_html()

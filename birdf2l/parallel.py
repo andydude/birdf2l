@@ -9,9 +9,21 @@ def is_opp(side, side2):
         side, side2 = side2, side
     if side == 'D' and side2 == 'U':
         return True
+    elif side == 'D' and side2 == 'y':
+        return True
+    elif side == 'U' and side2 == 'y':
+        return True
     elif side == 'L' and side2 == 'R':
         return True
+    elif side == 'L' and side2 == 'x':
+        return True
+    elif side == 'R' and side2 == 'x':
+        return True
     elif side == 'B' and side2 == 'F':
+        return True
+    elif side == 'B' and side2 == 'z':
+        return True
+    elif side == 'F' and side2 == 'z':
         return True
     else:
         return False
@@ -32,7 +44,6 @@ def stm1(side, side2):
     if ord(side[0]) > ord(side2[0]):
         side, side2 = side2, side
     angle, angle2 = get_angle(side), get_angle(side2)
-
     if is_opp(side, side2):
         if (angle + angle2) == 0:
             return (2, 1)

@@ -1,0 +1,3605 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>BirdF2L 0.9.9</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.min.css">
+        <style>
+         * {
+             font-family: monospace;
+             font-size: 12pt;
+         }
+         table.dataTable {
+             border-collapse: collapse !important;
+             margin-top: 0 !important;
+         }
+         .dataframe tr > th:nth-child(1),
+         .table-small tr > th { display: none; }
+         .dataframe td:nth-child(11) { width: 50%; }
+         .bf-tiny-table,
+         .bf-tiny-table td {
+             border: 0;
+             margin: 0;
+             padding: 0;
+         }
+         .table-small,
+         .table-small td {
+             border: 0;
+             margin: 0;
+             padding: 0;
+         }
+         dt { float: right; font-weight: normal; }
+         table.bf-nav-table tr td { width: 33%; } 
+        </style>
+    </head>
+    <body id="home">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">BirdF2L</a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#aboutModal">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            U-Sexy
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="Je.html"><img src="img/Je.png" width="64px"/></a>
+                                <a href="Ma.html"><img src="img/Ma.png" width="64px"/></a>
+                                <samp>T</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Cq.html"><img src="img/Cq.png" width="64px"/></a>
+                                <a href="Cd.html"><img src="img/Cd.png" width="64px"/></a>
+                                <samp>V</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Jq.html"><img src="img/Jq.png" width="64px"/></a>
+                                <a href="Md.html"><img src="img/Md.png" width="64px"/></a>
+                                <samp>R</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Me.html"><img src="img/Me.png" width="64px"/></a>
+                                <a href="Ja.html"><img src="img/Ja.png" width="64px"/></a>
+                                <samp>Q</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Ce.html"><img src="img/Ce.png" width="64px"/></a>
+                                <a href="Ca.html"><img src="img/Ca.png" width="64px"/></a>
+                                <samp>U</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Mq.html"><img src="img/Mq.png" width="64px"/></a>
+                                <a href="Jd.html"><img src="img/Jd.png" width="64px"/></a>
+                                <samp>S</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            U-Pair
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="Mi.html"><img src="img/Mi.png" width="64px"/></a>
+                                <a href="Jb.html"><img src="img/Jb.png" width="64px"/></a>
+                                <samp>I</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Ci.html"><img src="img/Ci.png" width="64px"/></a>
+                                <a href="Cb.html"><img src="img/Cb.png" width="64px"/></a>
+                                <samp>N</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Jm.html"><img src="img/Jm.png" width="64px"/></a>
+                                <a href="Mc.html"><img src="img/Mc.png" width="64px"/></a>
+                                <samp>J</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Mm.html"><img src="img/Mm.png" width="64px"/></a>
+                                <a href="Jc.html"><img src="img/Jc.png" width="64px"/></a>
+                                <samp>K</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Ji.html"><img src="img/Ji.png" width="64px"/></a>
+                                <a href="Mb.html"><img src="img/Mb.png" width="64px"/></a>
+                                <samp>L</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Cm.html"><img src="img/Cm.png" width="64px"/></a>
+                                <a href="Cc.html"><img src="img/Cc.png" width="64px"/></a>
+                                <samp>M</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            D-Sexy
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="Ki.html"><img src="img/Ki.png" width="64px"/></a>
+                                <a href="Pb.html"><img src="img/Pb.png" width="64px"/></a>
+                                <samp>F</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Pi.html"><img src="img/Pi.png" width="64px"/></a>
+                                <a href="Kb.html"><img src="img/Kb.png" width="64px"/></a>
+                                <samp>E</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Vi.html"><img src="img/Vi.png" width="64px"/></a>
+                                <a href="Vb.html"><img src="img/Vb.png" width="64px"/></a>
+                                <samp>A</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            D-Pair
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="Mj.html"><img src="img/Mj.png" width="64px"/></a>
+                                <a href="Jj.html"><img src="img/Jj.png" width="64px"/></a>
+                                <samp>G</samp>
+
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Mp.html"><img src="img/Mp.png" width="64px"/></a>
+                                <a href="Jp.html"><img src="img/Jp.png" width="64px"/></a>
+                                <samp>H</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Kp.html"><img src="img/Kp.png" width="64px"/></a>
+                                <a href="Pp.html"><img src="img/Pp.png" width="64px"/></a>
+                                <samp>D</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Kj.html"><img src="img/Kj.png" width="64px"/></a>
+                                <a href="Pj.html"><img src="img/Pj.png" width="64px"/></a>
+                                <samp>C</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Other
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <span class="dropdown-item">
+                                <a href="Cp.html"><img src="img/Cp.png" width="64px"/></a>
+                                <samp>Y</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Cj.html"><img src="img/Cj.png" width="64px"/></a>
+                                <samp>X</samp>
+                            </span>
+                            <span class="dropdown-item">
+                                <a href="Vp.html"><img src="img/Vp.png" width="64px"/></a>
+                                <samp>Z</samp>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/andydude/birdf2l">Source</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br/>
+        <div class="modal" id="aboutModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">About BirdF2L</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>BirdF2L is a speedcubing algorithm database similar to <a href="http://birdflu.lar5.com/">Birdflu</a>, but instead of Last Layer (LL) algorithms, we are interested in First Two Layer (F2L) algorithms.
+                        </p>
+                        <p>BirdF2L was written by Andrew Robbins, with the speed calculation written by Lars Petrus.
+                        </p>
+                        <p>Send comments and questions to and_j_rob@yahoo.com.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+                <a id="pattern-Jr">&nbsp;</a>
+        <br/>
+        <div class="bf-pattern row">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="lastSlot">
+                <label class="custom-control-label" for="customCheck1">Last slot</label>
+            </div>
+            <div class="col-sm-9">
+<table border="1" class="dataframe table table-bordered table-hover">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row</th>
+      <th>speed</th>
+      <th>stm</th>
+      <th>htm</th>
+      <th>qtm</th>
+      <th>algid</th>
+      <th>ollid</th>
+      <th>posid</th>
+      <th>patid</th>
+      <th>alg</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>924</th>
+      <td></td>
+      <td>5.76</td>
+      <td>7</td>
+      <td>7</td>
+      <td>8</td>
+      <td>GVX361</td>
+      <td>AaDcPdSp/JfQmUnWr</td>
+      <td>AaSpPcDd/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>F' U2 B' U B U F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>1046</th>
+      <td></td>
+      <td>9.0</td>
+      <td>7</td>
+      <td>7</td>
+      <td>11</td>
+      <td>GVX483</td>
+      <td>AaBbIcVj/JdUfWnXr</td>
+      <td>IaBjAcVb/UfJrWnXd</td>
+      <td>Jr</td>
+      <td>L' D2 B2 R B2 D2 L</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1068</th>
+      <td></td>
+      <td>6.78</td>
+      <td>7</td>
+      <td>7</td>
+      <td>10</td>
+      <td>GVX505</td>
+      <td>AaDcPdSp/JfQmUnWr</td>
+      <td>SaPpAcDd/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>L2 F U F2 U' F L2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1069</th>
+      <td></td>
+      <td>7.42</td>
+      <td>7</td>
+      <td>7</td>
+      <td>10</td>
+      <td>GVX506</td>
+      <td>AaBbPcSp/IeJfUnWr</td>
+      <td>SaBbAcPp/UfJrWnIe</td>
+      <td>Jr</td>
+      <td>L2 F' D F2 D' F' L2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1176</th>
+      <td></td>
+      <td>7.92</td>
+      <td>7</td>
+      <td>7</td>
+      <td>11</td>
+      <td>GVX613</td>
+      <td>AaBbIcVj/JdUfWnXr</td>
+      <td>IaBjAcVb/UfJrWnXd</td>
+      <td>Jr</td>
+      <td>R' B2 U2 R U2 B2 R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1190</th>
+      <td></td>
+      <td>7.42</td>
+      <td>7</td>
+      <td>7</td>
+      <td>10</td>
+      <td>GVX627</td>
+      <td>AaDcPdSp/JfQmUnWr</td>
+      <td>SaPpAcDd/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>R2 B D B2 D' B R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1196</th>
+      <td></td>
+      <td>6.78</td>
+      <td>7</td>
+      <td>7</td>
+      <td>10</td>
+      <td>GVX633</td>
+      <td>AaBbPcSp/IeJfUnWr</td>
+      <td>SaBbAcPp/UfJrWnIe</td>
+      <td>Jr</td>
+      <td>R2 B' U B2 U' B' R2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>1215</th>
+      <td></td>
+      <td>5.08</td>
+      <td>6</td>
+      <td>7</td>
+      <td>7</td>
+      <td>GVX652</td>
+      <td>AbHcPdQp/FfJnUqWr</td>
+      <td>AbPpQcHd/UfJrWnFq</td>
+      <td>Jr</td>
+      <td>U B' U' B F' U' F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>1217</th>
+      <td></td>
+      <td>5.56</td>
+      <td>8</td>
+      <td>7</td>
+      <td>7</td>
+      <td>GVX654</td>
+      <td>AaDcHdKp/JfQmUnWr</td>
+      <td>KdApDcHa/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U B' U' F' U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>1230</th>
+      <td></td>
+      <td>5.88</td>
+      <td>7</td>
+      <td>7</td>
+      <td>7</td>
+      <td>GVX667</td>
+      <td>AaDbHcKj/JdQfUnWr</td>
+      <td>KbAaDcHj/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U L R U' L' U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>1233</th>
+      <td></td>
+      <td>5.08</td>
+      <td>6</td>
+      <td>7</td>
+      <td>7</td>
+      <td>GVX670</td>
+      <td>BaHbIcPj/JdRfUnWr</td>
+      <td>IjBbPcHa/UfJrWnRd</td>
+      <td>Jr</td>
+      <td>U L U' L' R U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>2844</th>
+      <td></td>
+      <td>6.48</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>HVX491</td>
+      <td>AbDcPeXp/JaNfUnWr</td>
+      <td>XePpAcDb/UfJrWnNa</td>
+      <td>Jr</td>
+      <td>B' F' U' R' U' R B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2868</th>
+      <td></td>
+      <td>6.6</td>
+      <td>6</td>
+      <td>8</td>
+      <td>8</td>
+      <td>HVX515</td>
+      <td>DbEdHiPp/JaNfUnWr</td>
+      <td>EbPpDdHi/UfJrWnNa</td>
+      <td>Jr</td>
+      <td>B' R' U' R B F' U' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2873</th>
+      <td></td>
+      <td>7.0</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>HVX520</td>
+      <td>BdEiHpKq/DfJmUnWr</td>
+      <td>KiEpBdHq/UfJrWnDm</td>
+      <td>Jr</td>
+      <td>B' R' U' R F' U' B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2901</th>
+      <td></td>
+      <td>8.68</td>
+      <td>8</td>
+      <td>8</td>
+      <td>11</td>
+      <td>HVX548</td>
+      <td>BaDbHcRp/JeUfVnWr</td>
+      <td>RaBcDbHp/UfJrWnVe</td>
+      <td>Jr</td>
+      <td>D2 B' F' U2 F U' B D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2903</th>
+      <td></td>
+      <td>8.68</td>
+      <td>8</td>
+      <td>8</td>
+      <td>10</td>
+      <td>HVX550</td>
+      <td>AaDbHcKp/JeQfUnWr</td>
+      <td>HpKaAcDb/UfJrWnQe</td>
+      <td>Jr</td>
+      <td>D2 B' F' U B U F D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2915</th>
+      <td></td>
+      <td>8.52</td>
+      <td>8</td>
+      <td>8</td>
+      <td>11</td>
+      <td>HVX562</td>
+      <td>BaDbHcRp/JeUfVnWr</td>
+      <td>RbHaBcDp/UfJrWnVe</td>
+      <td>Jr</td>
+      <td>D2 F' U' B' U2 B F D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2928</th>
+      <td></td>
+      <td>8.68</td>
+      <td>8</td>
+      <td>8</td>
+      <td>10</td>
+      <td>HVX575</td>
+      <td>AaDcHdKj/JbQfUnWr</td>
+      <td>HcKaAjDd/UfJrWnQb</td>
+      <td>Jr</td>
+      <td>D2 L U R U L' R' D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2954</th>
+      <td></td>
+      <td>6.58</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>HVX601</td>
+      <td>AbDcQdSp/JfPnUqWr</td>
+      <td>AbSpQcDd/UfJrWnPq</td>
+      <td>Jr</td>
+      <td>F2 U B' U' B F U' F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>2955</th>
+      <td></td>
+      <td>7.06</td>
+      <td>9</td>
+      <td>8</td>
+      <td>9</td>
+      <td>HVX602</td>
+      <td>AaDcVdXp/JfQmUnWr</td>
+      <td>XdApVcDa/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>F2 U B' U' F U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>3019</th>
+      <td></td>
+      <td>7.4</td>
+      <td>9</td>
+      <td>8</td>
+      <td>9</td>
+      <td>HVX666</td>
+      <td>DcPmRpXq/BeJfUnWr</td>
+      <td>XqRpPcDm/UfJrWnBe</td>
+      <td>Jr</td>
+      <td>F' U' B' R' U2 R B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3392</th>
+      <td></td>
+      <td>6.8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>HVX1039</td>
+      <td>BaHbIdPi/JfRnUpWr</td>
+      <td>BbIiPdHa/UfJrWnRp</td>
+      <td>Jr</td>
+      <td>R B' U' B R' F' U' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3439</th>
+      <td></td>
+      <td>8.78</td>
+      <td>8</td>
+      <td>8</td>
+      <td>11</td>
+      <td>HVX1086</td>
+      <td>AbBcDdKp/JfUnWqXr</td>
+      <td>KcBbDpAd/UfJrWnXq</td>
+      <td>Jr</td>
+      <td>R F R2 D2 B D2 R F'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3729</th>
+      <td></td>
+      <td>9.34</td>
+      <td>8</td>
+      <td>8</td>
+      <td>14</td>
+      <td>HVX1376</td>
+      <td>DaQcRdSj/JbUfVnWr</td>
+      <td>QcDdSaRj/UfJrWnVb</td>
+      <td>Jr</td>
+      <td>U2 D2 L F2 L F2 L2 D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3732</th>
+      <td></td>
+      <td>9.54</td>
+      <td>8</td>
+      <td>8</td>
+      <td>14</td>
+      <td>HVX1379</td>
+      <td>BaIbRcSj/JdUfVnWr</td>
+      <td>IcRjSaBb/UfJrWnVd</td>
+      <td>Jr</td>
+      <td>U2 D2 R2 B2 R' B2 R' D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3817</th>
+      <td></td>
+      <td>8.2</td>
+      <td>8</td>
+      <td>8</td>
+      <td>11</td>
+      <td>HVX1464</td>
+      <td>BaDcPdRp/JfUmWnXr</td>
+      <td>BdPpRcDa/UfJrWnXm</td>
+      <td>Jr</td>
+      <td>U2 F' U' F' D' L2 D F2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3993</th>
+      <td></td>
+      <td>6.24</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>HVX1640</td>
+      <td>BaDbHcRd/JfUjVnWr</td>
+      <td>BbDdRcHa/UfJrWnVj</td>
+      <td>Jr</td>
+      <td>U2 R U' L U' L' U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>4065</th>
+      <td></td>
+      <td>5.68</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>HVX1712</td>
+      <td>BaHbPcRp/IeJfUnWr</td>
+      <td>RbPpBaHc/UfJrWnIe</td>
+      <td>Jr</td>
+      <td>U' B' U2 B U F' U' F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>4122</th>
+      <td></td>
+      <td>6.08</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>HVX1769</td>
+      <td>AaBbPdSp/IfJiUnWr</td>
+      <td>SdAaBbPp/UfJrWnIi</td>
+      <td>Jr</td>
+      <td>U B' U' F' U' F U2 B</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>4123</th>
+      <td></td>
+      <td>5.84</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>HVX1770</td>
+      <td>AbDcNdPp/JfUnWqXr</td>
+      <td>NdAbPpDc/UfJrWnXq</td>
+      <td>Jr</td>
+      <td>U B' U' F' U' F U B</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>4124</th>
+      <td></td>
+      <td>5.84</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>HVX1771</td>
+      <td>AaBbFcHd/JfUjVnWr</td>
+      <td>FdAcHaBb/UfJrWnVj</td>
+      <td>Jr</td>
+      <td>U B' U' F' U' F U' B</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>4181</th>
+      <td></td>
+      <td>8.0</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>HVX1828</td>
+      <td>AaBbDcKd/JfUjWnXr</td>
+      <td>BdAcDbKa/UfJrWnXj</td>
+      <td>Jr</td>
+      <td>U F' D' B' U2 B D F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4194</th>
+      <td></td>
+      <td>5.8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>HVX1841</td>
+      <td>AaDdNmPp/JcUfWnXr</td>
+      <td>NdAaPpDm/UfJrWnXc</td>
+      <td>Jr</td>
+      <td>U F' L' F' L' F L F</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>4216</th>
+      <td></td>
+      <td>8.04</td>
+      <td>8</td>
+      <td>8</td>
+      <td>11</td>
+      <td>HVX1863</td>
+      <td>AaIcPdQp/JfUmWnXr</td>
+      <td>ApIaQcPd/UfJrWnXm</td>
+      <td>Jr</td>
+      <td>U' F' U2 F' D' L2 D F2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4380</th>
+      <td></td>
+      <td>5.68</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>HVX2027</td>
+      <td>DaHbKcNj/JdRfUnWr</td>
+      <td>KbHaDcNj/UfJrWnRd</td>
+      <td>Jr</td>
+      <td>U L U' L' U R U2 R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>4388</th>
+      <td></td>
+      <td>6.48</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>HVX2035</td>
+      <td>AaBbDcSd/JfUjVnWr</td>
+      <td>BbSdDcAa/UfJrWnVj</td>
+      <td>Jr</td>
+      <td>U L U R U2 L' U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>4406</th>
+      <td></td>
+      <td>7.9</td>
+      <td>8</td>
+      <td>8</td>
+      <td>11</td>
+      <td>HVX2053</td>
+      <td>AaBbKeXi/DfJjUnWr</td>
+      <td>XiAaBbKe/UfJrWnDj</td>
+      <td>Jr</td>
+      <td>U R2 B' L' B2 L B R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4411</th>
+      <td></td>
+      <td>6.9</td>
+      <td>8</td>
+      <td>8</td>
+      <td>11</td>
+      <td>HVX2058</td>
+      <td>AaDdKiXm/BfJjUnWr</td>
+      <td>XiKmDdAa/UfJrWnBj</td>
+      <td>Jr</td>
+      <td>U' R2 B R' B2 R B' R2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>9913</th>
+      <td></td>
+      <td>7.2</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX842</td>
+      <td>AaBbPeXp/FcJfUnWr</td>
+      <td>XaBpAePb/UfJrWnFc</td>
+      <td>Jr</td>
+      <td>B' F' U L' U' L U2 B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10056</th>
+      <td></td>
+      <td>8.0</td>
+      <td>7</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX985</td>
+      <td>KaNcRdSp/IfJmUnWr</td>
+      <td>KcSpRdNa/UfJrWnIm</td>
+      <td>Jr</td>
+      <td>F' U2 B' F U B F' U F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>10086</th>
+      <td></td>
+      <td>9.08</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX1015</td>
+      <td>BaDbPcRp/JeUfWnXr</td>
+      <td>RcDpBbPa/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>F' U' F' D' U' L2 D U F2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10194</th>
+      <td></td>
+      <td>8.2</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX1123</td>
+      <td>AaBbPcSp/IeJfUnWr</td>
+      <td>SaBbAcPp/UfJrWnIe</td>
+      <td>Jr</td>
+      <td>L' R' D' B D2 B' D' L R</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10197</th>
+      <td></td>
+      <td>8.2</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX1126</td>
+      <td>AaDcPdSp/JfQmUnWr</td>
+      <td>SaPpAcDd/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>L' R' D F D2 F' D L R</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10222</th>
+      <td></td>
+      <td>7.8</td>
+      <td>7</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX1151</td>
+      <td>BaHbIiPp/JdRfUnWr</td>
+      <td>IaBbPpHi/UfJrWnRd</td>
+      <td>Jr</td>
+      <td>L R' F L F' L' R F' L'</td>
+      <td>RFL</td>
+    </tr>
+    <tr>
+      <th>10229</th>
+      <td></td>
+      <td>7.8</td>
+      <td>8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX1158</td>
+      <td>AaDiHjKm/JdQfUnWr</td>
+      <td>KaAiDmHj/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>L R' F L R F' L' F' L'</td>
+      <td>RFL</td>
+    </tr>
+    <tr>
+      <th>10292</th>
+      <td></td>
+      <td>7.2</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX1221</td>
+      <td>AaDcPdSp/JfQmUnWr</td>
+      <td>SaPpAcDd/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>L R U B U2 B' U L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10297</th>
+      <td></td>
+      <td>7.2</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX1226</td>
+      <td>AaBbPcSp/IeJfUnWr</td>
+      <td>SaBbAcPp/UfJrWnIe</td>
+      <td>Jr</td>
+      <td>L R U' F U2 F' U' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10435</th>
+      <td></td>
+      <td>9.26</td>
+      <td>9</td>
+      <td>9</td>
+      <td>12</td>
+      <td>IVX1364</td>
+      <td>BbDcPdRp/JfUnWqXr</td>
+      <td>PdRpDcBb/UfJrWnXq</td>
+      <td>Jr</td>
+      <td>R2 U B D B2 D' U' B R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10710</th>
+      <td></td>
+      <td>8.56</td>
+      <td>9</td>
+      <td>9</td>
+      <td>13</td>
+      <td>IVX1639</td>
+      <td>HaIbKcQj/JdRfUnWr</td>
+      <td>IaHbQjKc/UfJrWnRd</td>
+      <td>Jr</td>
+      <td>R U B2 U' B2 U R B2 R2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>11282</th>
+      <td></td>
+      <td>9.54</td>
+      <td>9</td>
+      <td>9</td>
+      <td>13</td>
+      <td>IVX2211</td>
+      <td>AaBbFdPj/JcUfWnXr</td>
+      <td>BdAaFbPj/UfJrWnXc</td>
+      <td>Jr</td>
+      <td>R U' R' U2 F2 D' L2 D F2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11309</th>
+      <td></td>
+      <td>8.94</td>
+      <td>9</td>
+      <td>9</td>
+      <td>13</td>
+      <td>IVX2238</td>
+      <td>AaBbFdPj/JcUfWnXr</td>
+      <td>AaPdFjBb/UfJrWnXc</td>
+      <td>Jr</td>
+      <td>R U' R' U2 R2 D B2 D' R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11526</th>
+      <td></td>
+      <td>9.52</td>
+      <td>9</td>
+      <td>9</td>
+      <td>12</td>
+      <td>IVX2455</td>
+      <td>BaDbEcXp/JeUfVnWr</td>
+      <td>DpEbXaBc/UfJrWnVe</td>
+      <td>Jr</td>
+      <td>U2 D2 B' F' U' B U' F D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11530</th>
+      <td></td>
+      <td>9.04</td>
+      <td>8</td>
+      <td>9</td>
+      <td>12</td>
+      <td>IVX2459</td>
+      <td>DaEbHcPp/JeNfUnWr</td>
+      <td>DaHpEbPc/UfJrWnNe</td>
+      <td>Jr</td>
+      <td>U2 D2 B' U' B F' U' F D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11543</th>
+      <td></td>
+      <td>9.76</td>
+      <td>9</td>
+      <td>9</td>
+      <td>14</td>
+      <td>IVX2472</td>
+      <td>BaIbRcSj/JdUfVnWr</td>
+      <td>IcRjSaBb/UfJrWnVd</td>
+      <td>Jr</td>
+      <td>U2 D2 L R U2 R' U2 L' D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11554</th>
+      <td></td>
+      <td>9.76</td>
+      <td>9</td>
+      <td>9</td>
+      <td>14</td>
+      <td>IVX2483</td>
+      <td>DaQcRdSj/JbUfVnWr</td>
+      <td>QcDdSaRj/UfJrWnVb</td>
+      <td>Jr</td>
+      <td>U2 D2 R U2 L U2 L' R' D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11628</th>
+      <td></td>
+      <td>8.28</td>
+      <td>10</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX2557</td>
+      <td>BcDdPjRq/JfUmWnXr</td>
+      <td>BdPqRjDc/UfJrWnXm</td>
+      <td>Jr</td>
+      <td>U2 F' U' B' L' U2 L B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11950</th>
+      <td></td>
+      <td>8.52</td>
+      <td>10</td>
+      <td>9</td>
+      <td>12</td>
+      <td>IVX2879</td>
+      <td>DcQdRpXq/JbKfUnWr</td>
+      <td>XpDdRcQq/UfJrWnKb</td>
+      <td>Jr</td>
+      <td>U2 R U2 L F U2 F' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11959</th>
+      <td></td>
+      <td>9.94</td>
+      <td>9</td>
+      <td>9</td>
+      <td>14</td>
+      <td>IVX2888</td>
+      <td>DaQcRdXj/JbKfUnWr</td>
+      <td>XdQaDcRj/UfJrWnKb</td>
+      <td>Jr</td>
+      <td>U2 R U2 R' B2 D' R2 D B2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12075</th>
+      <td></td>
+      <td>8.2</td>
+      <td>8</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX3004</td>
+      <td>AcDdHjKq/JfQmUnWr</td>
+      <td>KdAcDqHj/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U' B F' L2 B' L' F' L' F2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12148</th>
+      <td></td>
+      <td>7.9</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX3077</td>
+      <td>DcHeQpRq/JfPmUnWr</td>
+      <td>RqDeQpHc/UfJrWnPm</td>
+      <td>Jr</td>
+      <td>U B' R B' F R' F' R' B2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12172</th>
+      <td></td>
+      <td>7.02</td>
+      <td>8</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX3101</td>
+      <td>AcDdHjKq/JfQmUnWr</td>
+      <td>KdAcDqHj/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U B' U2 B F' L F' L' F2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12194</th>
+      <td></td>
+      <td>7.06</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX3123</td>
+      <td>AaBbFdSp/JfKiUnWr</td>
+      <td>SdAaBpFb/UfJrWnKi</td>
+      <td>Jr</td>
+      <td>U B' U B' F' U F U' B2</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>12237</th>
+      <td></td>
+      <td>9.12</td>
+      <td>9</td>
+      <td>9</td>
+      <td>12</td>
+      <td>IVX3166</td>
+      <td>AaBbFcHj/JdUfVnWr</td>
+      <td>HcBbFjAa/UfJrWnVd</td>
+      <td>Jr</td>
+      <td>U' D2 L R U2 R' U' L' D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12249</th>
+      <td></td>
+      <td>8.64</td>
+      <td>8</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX3178</td>
+      <td>DaHcPdQj/JbRfUnWr</td>
+      <td>QjDdHaPc/UfJrWnRb</td>
+      <td>Jr</td>
+      <td>U' D2 L U' L' R U' R' D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12261</th>
+      <td></td>
+      <td>8.96</td>
+      <td>9</td>
+      <td>9</td>
+      <td>12</td>
+      <td>IVX3190</td>
+      <td>AaDcHdNj/JbUfVnWr</td>
+      <td>HcAaNjDd/UfJrWnVb</td>
+      <td>Jr</td>
+      <td>U D2 R U' L U2 L' R' D2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12264</th>
+      <td></td>
+      <td>9.24</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX3193</td>
+      <td>BaDbPcRj/JdUfWnXr</td>
+      <td>BbPaRcDj/UfJrWnXd</td>
+      <td>Jr</td>
+      <td>U F2 D' L' U' L' D U F2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12281</th>
+      <td></td>
+      <td>8.24</td>
+      <td>8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX3210</td>
+      <td>AbDcQdVp/JfUnWqXr</td>
+      <td>ApQcVbDd/UfJrWnXq</td>
+      <td>Jr</td>
+      <td>U F' D' B' U' B D U' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12292</th>
+      <td></td>
+      <td>8.16</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX3221</td>
+      <td>DbKcQdRp/JfUnWqXr</td>
+      <td>KcDpQbRd/UfJrWnXq</td>
+      <td>Jr</td>
+      <td>U F' D' U B' U2 B D F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12293</th>
+      <td></td>
+      <td>8.16</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX3222</td>
+      <td>AaBbFdPp/JfUiWnXr</td>
+      <td>FaPdAbBp/UfJrWnXi</td>
+      <td>Jr</td>
+      <td>U F' D' U' B' U2 B D F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12335</th>
+      <td></td>
+      <td>8.12</td>
+      <td>10</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX3264</td>
+      <td>AcIePpQq/JfUmWnXr</td>
+      <td>ApIeQqPc/UfJrWnXm</td>
+      <td>Jr</td>
+      <td>U' F' U2 B' L' U2 L B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12381</th>
+      <td></td>
+      <td>7.7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX3310</td>
+      <td>AaDdHiKj/JfQmUnWr</td>
+      <td>KiAaDdHj/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U L2 F' L' F L' R U2 R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12383</th>
+      <td></td>
+      <td>8.2</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX3312</td>
+      <td>AaDdHiKj/JfQmUnWr</td>
+      <td>DdHjKiAa/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U L2 F' L' F' R' F2 L' R</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12449</th>
+      <td></td>
+      <td>7.8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX3378</td>
+      <td>AbDcNdPp/JfUnWqXr</td>
+      <td>AbPpDcNd/UfJrWnXq</td>
+      <td>Jr</td>
+      <td>U L R B U' B' L' U' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12495</th>
+      <td></td>
+      <td>7.8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX3424</td>
+      <td>DcEjHmVq/JdQfUnWr</td>
+      <td>HjDmEcVq/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U L R U' L' B U' B' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12496</th>
+      <td></td>
+      <td>7.8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX3425</td>
+      <td>AaBcIePj/JfSmUnWr</td>
+      <td>IjAaPcBe/UfJrWnSm</td>
+      <td>Jr</td>
+      <td>U L R U' L' B' U' B R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12528</th>
+      <td></td>
+      <td>7.08</td>
+      <td>8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX3457</td>
+      <td>DaHcPmQp/JdRfUnWr</td>
+      <td>HaPpQcDm/UfJrWnRd</td>
+      <td>Jr</td>
+      <td>U L U' L' R B U' B' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12529</th>
+      <td></td>
+      <td>7.08</td>
+      <td>8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX3458</td>
+      <td>BaEbFcVe/JfSnUpWr</td>
+      <td>VaBbFcEe/UfJrWnSp</td>
+      <td>Jr</td>
+      <td>U L U' L' R B' U' B R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12545</th>
+      <td></td>
+      <td>7.9</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX3474</td>
+      <td>AbHeIjNq/JcPfUnWr</td>
+      <td>IqNeAbHj/UfJrWnPc</td>
+      <td>Jr</td>
+      <td>U R2 B' L' B' L R' B R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12556</th>
+      <td></td>
+      <td>9.4</td>
+      <td>9</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX3485</td>
+      <td>DbEdKiNj/JfUnWqXr</td>
+      <td>KiDdEbNj/UfJrWnXq</td>
+      <td>Jr</td>
+      <td>U R2 D B' L' B' L D' R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12628</th>
+      <td></td>
+      <td>8.2</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX3557</td>
+      <td>AcHdIjNq/JfPmUnWr</td>
+      <td>IqAcHdNj/UfJrWnPm</td>
+      <td>Jr</td>
+      <td>U R B' L' B L U2 B R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12632</th>
+      <td></td>
+      <td>9.2</td>
+      <td>8</td>
+      <td>9</td>
+      <td>11</td>
+      <td>IVX3561</td>
+      <td>BbEeIiXj/JaPfUnWr</td>
+      <td>XiBeEbIj/UfJrWnPa</td>
+      <td>Jr</td>
+      <td>U R B' L' R B2 L B R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12671</th>
+      <td></td>
+      <td>7.8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX3600</td>
+      <td>DbKcQjRq/JeUfWnXr</td>
+      <td>KbDcQqRj/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>U R B U2 R B R' B' R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>12736</th>
+      <td></td>
+      <td>7.6</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX3665</td>
+      <td>BcDdHjKm/EfJnUqWr</td>
+      <td>KdDmBcHj/UfJrWnEq</td>
+      <td>Jr</td>
+      <td>U' R B' U R B R' U R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>12749</th>
+      <td></td>
+      <td>8.24</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>IVX3678</td>
+      <td>AaBbDcKj/JdUfWnXr</td>
+      <td>KbBaDcAj/UfJrWnXd</td>
+      <td>Jr</td>
+      <td>U R D L U' L' D' U' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12913</th>
+      <td></td>
+      <td>7.88</td>
+      <td>10</td>
+      <td>9</td>
+      <td>10</td>
+      <td>IVX3842</td>
+      <td>AaDcPeXp/JbNfUnWr</td>
+      <td>XeAaDcPp/UfJrWnNb</td>
+      <td>Jr</td>
+      <td>U R U' L F U2 F' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12928</th>
+      <td></td>
+      <td>9.3</td>
+      <td>9</td>
+      <td>9</td>
+      <td>12</td>
+      <td>IVX3857</td>
+      <td>AaDcPdXj/JbNfUnWr</td>
+      <td>XaPjAcDd/UfJrWnNb</td>
+      <td>Jr</td>
+      <td>U R U' R' B2 D' R2 D B2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>24616</th>
+      <td></td>
+      <td>9.4</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX2338</td>
+      <td>BaDbPcRp/JeUfWnXr</td>
+      <td>RcDpBbPa/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>F' U' B' L' R' U2 L R B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>25486</th>
+      <td></td>
+      <td>8.4</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX2850</td>
+      <td>AaBdDiHj/JfPmUnWr</td>
+      <td>DaBiAdHj/UfJrWnPm</td>
+      <td>Jr</td>
+      <td>R B' U' B R' B' F' U' B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>25703</th>
+      <td></td>
+      <td>9.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX2981</td>
+      <td>AaIdPiQp/JbUfWnXr</td>
+      <td>PpQiAaId/UfJrWnXb</td>
+      <td>Jr</td>
+      <td>R' F R F D' U' L2 D U F2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>26474</th>
+      <td></td>
+      <td>9.0</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX3489</td>
+      <td>DcEeKjQq/JbSfUnWr</td>
+      <td>QjEeDqKc/UfJrWnSb</td>
+      <td>Jr</td>
+      <td>R U L B' R B R' U2 L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>27216</th>
+      <td></td>
+      <td>7.64</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX4121</td>
+      <td>BaDcKmSp/JdRfUnWr</td>
+      <td>BaSpDmKc/UfJrWnRd</td>
+      <td>Jr</td>
+      <td>R U L U B U B' U L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>27234</th>
+      <td></td>
+      <td>7.64</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX4138</td>
+      <td>BaDbKiSp/JdRfUnWr</td>
+      <td>KaBbDiSp/UfJrWnRd</td>
+      <td>Jr</td>
+      <td>R U L U' F U F' U' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>30475</th>
+      <td></td>
+      <td>8.96</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX6336</td>
+      <td>BaDbPcRd/JfUjWnXr</td>
+      <td>BbPdRcDa/UfJrWnXj</td>
+      <td>Jr</td>
+      <td>U2 R D U' L U' L' D' U' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>30971</th>
+      <td></td>
+      <td>10.2</td>
+      <td>10</td>
+      <td>10</td>
+      <td>14</td>
+      <td>JVX6640</td>
+      <td>DaKcQdRj/JbUfWnXr</td>
+      <td>QaRjKcDd/UfJrWnXb</td>
+      <td>Jr</td>
+      <td>U2 R U2 R D U B2 D' U' R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>31129</th>
+      <td></td>
+      <td>10.08</td>
+      <td>9</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX6739</td>
+      <td>AaIbPiXp/JdQfUnWr</td>
+      <td>XiPpIbAa/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U2 R U' B' L' R B2 L B R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>31393</th>
+      <td></td>
+      <td>9.18</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX6912</td>
+      <td>DaKdRiXj/JfQmUnWr</td>
+      <td>XiDdRjKa/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U2 R U' L2 F' L' F L' U2 R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>31419</th>
+      <td></td>
+      <td>8.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX6938</td>
+      <td>DbKcQjRq/JeUfWnXr</td>
+      <td>DbQqRcKj/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>U2 R U' L B U' B' L' U' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>31500</th>
+      <td></td>
+      <td>8.48</td>
+      <td>8</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX7001</td>
+      <td>AaHbPcQd/FfJjUnWr</td>
+      <td>AaPbQcHd/UfJrWnFj</td>
+      <td>Jr</td>
+      <td>U2 R U' L R' U' L' R U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>31525</th>
+      <td></td>
+      <td>8.04</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX7023</td>
+      <td>BcDdRjXm/JfPnUqWr</td>
+      <td>XjDdBcRm/UfJrWnPq</td>
+      <td>Jr</td>
+      <td>U2 R U L U F U F' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>31535</th>
+      <td></td>
+      <td>8.16</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX7032</td>
+      <td>HaIcNeRm/JfUjVnWr</td>
+      <td>HaRmIcNe/UfJrWnVj</td>
+      <td>Jr</td>
+      <td>U2 R U' L U' L' B U' B' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>31536</th>
+      <td></td>
+      <td>8.16</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX7033</td>
+      <td>AaDcPdQp/JfSmUnWr</td>
+      <td>AaDdQcPp/UfJrWnSm</td>
+      <td>Jr</td>
+      <td>U2 R U' L U' L' B' U' B R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>31906</th>
+      <td></td>
+      <td>8.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX7252</td>
+      <td>BbDdPiXp/JaRfUnWr</td>
+      <td>XiDdPbBp/UfJrWnRa</td>
+      <td>Jr</td>
+      <td>U2 R U' R B' L' B2 L B R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>31996</th>
+      <td></td>
+      <td>7.88</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX7311</td>
+      <td>DbHcQjVq/EeJfUnWr</td>
+      <td>DbQqVcHj/UfJrWnEe</td>
+      <td>Jr</td>
+      <td>U2 R U' R' B' U' B F' U' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>32031</th>
+      <td></td>
+      <td>8.36</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX7333</td>
+      <td>BcDdHjRq/JfUmVnWr</td>
+      <td>BjDqRcHd/UfJrWnVm</td>
+      <td>Jr</td>
+      <td>U2 R U' R' B' U' F' U' B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>32955</th>
+      <td></td>
+      <td>7.76</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX7927</td>
+      <td>AaBcHdKp/IfJmUnWr</td>
+      <td>KaHpBdAc/UfJrWnIm</td>
+      <td>Jr</td>
+      <td>U' B' F' U2 B U' B' U B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33309</th>
+      <td></td>
+      <td>9.0</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8155</td>
+      <td>AaDbHcPp/BeJfUnWr</td>
+      <td>DbAaPpHc/UfJrWnBe</td>
+      <td>Jr</td>
+      <td>U B' R B' F R' B F' R' B</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>33360</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8192</td>
+      <td>FaHcKdRp/BfJmUnWr</td>
+      <td>KcRpFaHd/UfJrWnBm</td>
+      <td>Jr</td>
+      <td>U' B' U2 B U B' F' U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33361</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8193</td>
+      <td>FaHcKdRp/BfJmUnWr</td>
+      <td>FaHdKcRp/UfJrWnBm</td>
+      <td>Jr</td>
+      <td>U' B' U2 B U' B' F' U B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33394</th>
+      <td></td>
+      <td>8.48</td>
+      <td>8</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8216</td>
+      <td>EaIbPdSp/JfNiUnWr</td>
+      <td>SbPdIaEp/UfJrWnNi</td>
+      <td>Jr</td>
+      <td>U B' U' B F' U' B' F U2 B</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33405</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8223</td>
+      <td>DaEbPcQp/JeUfWnXr</td>
+      <td>DbPaEpQc/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>U B' U' B F' U' B' F U B</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33406</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8224</td>
+      <td>BaHbIcPd/JfRjUnWr</td>
+      <td>BbPcHdIa/UfJrWnRj</td>
+      <td>Jr</td>
+      <td>U B' U' B F' U' B' F U' B</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33432</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8243</td>
+      <td>AaDcHdKp/JfQmUnWr</td>
+      <td>DcHaKdAp/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U B' U' B U2 B' F' U B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33672</th>
+      <td></td>
+      <td>8.56</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8401</td>
+      <td>DaEbPcQp/JeUfWnXr</td>
+      <td>DaPpEbQc/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>U F' D' U B' U' B D U' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>33674</th>
+      <td></td>
+      <td>8.56</td>
+      <td>9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8403</td>
+      <td>AaDbNcPd/JfUjWnXr</td>
+      <td>PcDdNbAa/UfJrWnXj</td>
+      <td>Jr</td>
+      <td>U F' D' U' B' U' B D U' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>33715</th>
+      <td></td>
+      <td>9.0</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8434</td>
+      <td>DaEbPcQp/JeUfWnXr</td>
+      <td>DbPaEpQc/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>U F' L' B F' L' B' F L F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>33718</th>
+      <td></td>
+      <td>8.6</td>
+      <td>9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8437</td>
+      <td>AaHdPmQp/FcJfUnWr</td>
+      <td>HdAaPpQm/UfJrWnFc</td>
+      <td>Jr</td>
+      <td>U F' L' B F' L' F L B' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>33720</th>
+      <td></td>
+      <td>8.6</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8439</td>
+      <td>AaDeHiKp/JfQmUnWr</td>
+      <td>HiKaApDe/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U F' L' F' L' B F L B' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>33794</th>
+      <td></td>
+      <td>8.32</td>
+      <td>8</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8484</td>
+      <td>AaDbHdQp/JfKiUnWr</td>
+      <td>QbDdAaHp/UfJrWnKi</td>
+      <td>Jr</td>
+      <td>U F' U2 B' F U' B F' U' F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33803</th>
+      <td></td>
+      <td>8.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8490</td>
+      <td>FaHcPdQp/AfJmUnWr</td>
+      <td>FpQdPaHc/UfJrWnAm</td>
+      <td>Jr</td>
+      <td>U F' U2 B' F U' F' U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33870</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8536</td>
+      <td>AaDbHcPp/BeJfUnWr</td>
+      <td>DbAaPpHc/UfJrWnBe</td>
+      <td>Jr</td>
+      <td>U F' U B' F U' B F' U' F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33875</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8539</td>
+      <td>DaHbPcQd/JfRjUnWr</td>
+      <td>PbQcDdHa/UfJrWnRj</td>
+      <td>Jr</td>
+      <td>U F' U' B' F U' B F' U' F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33886</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8547</td>
+      <td>DaHcQdRp/JfPmUnWr</td>
+      <td>RcDaQpHd/UfJrWnPm</td>
+      <td>Jr</td>
+      <td>U F' U B' F U' F' U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>33889</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8549</td>
+      <td>AaBcHdPp/DfJmUnWr</td>
+      <td>BaPcAdHp/UfJrWnDm</td>
+      <td>Jr</td>
+      <td>U F' U' B' F U' F' U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34372</th>
+      <td></td>
+      <td>7.76</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8892</td>
+      <td>AaBiDjPm/HdJfUnWr</td>
+      <td>PiDmBjAa/UfJrWnHd</td>
+      <td>Jr</td>
+      <td>U' L R U B U' B' U L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>34389</th>
+      <td></td>
+      <td>7.76</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8906</td>
+      <td>AaBeDiPj/HbJfUnWr</td>
+      <td>PiAaDjBe/UfJrWnHb</td>
+      <td>Jr</td>
+      <td>U L R U' F U' F' U' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>34403</th>
+      <td></td>
+      <td>8.08</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8918</td>
+      <td>AaDbHcKj/JdQfUnWr</td>
+      <td>KbAaDcHj/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U' L R U L' R' U2 R U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34414</th>
+      <td></td>
+      <td>7.92</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8929</td>
+      <td>FaHbRcVj/JdQfUnWr</td>
+      <td>FaHjVcRb/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U L R U' L' R' U R U2 R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34415</th>
+      <td></td>
+      <td>7.92</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8930</td>
+      <td>FaHbRcVj/JdQfUnWr</td>
+      <td>FaHjVcRb/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U' L R U L' R' U' R U2 R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34422</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8937</td>
+      <td>AaBbKcXd/DfJjUnWr</td>
+      <td>XdAaBcKb/UfJrWnDj</td>
+      <td>Jr</td>
+      <td>U L R U' L' U2 L U L' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34424</th>
+      <td></td>
+      <td>8.48</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8939</td>
+      <td>EbHcNdVj/FaJfUnWr</td>
+      <td>EcVdNbHj/UfJrWnFa</td>
+      <td>Jr</td>
+      <td>U L R U' L' U' L R' U2 L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34427</th>
+      <td></td>
+      <td>8.08</td>
+      <td>9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8942</td>
+      <td>AaHbIdNj/JcPfUnWr</td>
+      <td>IdNbAaHj/UfJrWnPc</td>
+      <td>Jr</td>
+      <td>U L R U' L' U' L R' U L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34428</th>
+      <td></td>
+      <td>8.08</td>
+      <td>9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX8943</td>
+      <td>BaDcHdVj/JbRfUnWr</td>
+      <td>BaDcVdHj/UfJrWnRb</td>
+      <td>Jr</td>
+      <td>U L R U' L' U' L R' U' L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34439</th>
+      <td></td>
+      <td>7.92</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8953</td>
+      <td>BbEcIdKj/JaSfUnWr</td>
+      <td>IdKbBcEj/UfJrWnSa</td>
+      <td>Jr</td>
+      <td>U L R U R' U2 L' R U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34441</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8955</td>
+      <td>AaDbKcXd/BfJjUnWr</td>
+      <td>XbKdDcAa/UfJrWnBj</td>
+      <td>Jr</td>
+      <td>U' L R U R' U2 R U' L' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34458</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX8968</td>
+      <td>AaBcHdKj/IbJfUnWr</td>
+      <td>KdHjBcAa/UfJrWnIb</td>
+      <td>Jr</td>
+      <td>U' L R U R' U' R U2 L' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34498</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX9006</td>
+      <td>BbEcIdXj/JaPfUnWr</td>
+      <td>XdBbEcIj/UfJrWnPa</td>
+      <td>Jr</td>
+      <td>U L U' L' R U2 L U L' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34501</th>
+      <td></td>
+      <td>8.48</td>
+      <td>8</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX9009</td>
+      <td>AaDcHdQj/JbKfUnWr</td>
+      <td>QcDdAjHa/UfJrWnKb</td>
+      <td>Jr</td>
+      <td>U L U' L' R U' L R' U2 L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34505</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX9013</td>
+      <td>AaBbHdVj/FcJfUnWr</td>
+      <td>VdAjBbHa/UfJrWnFc</td>
+      <td>Jr</td>
+      <td>U L U' L' R U' L R' U L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34506</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX9014</td>
+      <td>DaEbHcPd/JfNjUnWr</td>
+      <td>EbPcDdHa/UfJrWnNj</td>
+      <td>Jr</td>
+      <td>U L U' L' R U' L R' U' L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>34921</th>
+      <td></td>
+      <td>9.0</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX9269</td>
+      <td>AaBbHdVj/FcJfUnWr</td>
+      <td>VdAjBbHa/UfJrWnFc</td>
+      <td>Jr</td>
+      <td>U R B' L' R B' L R' B R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>34935</th>
+      <td></td>
+      <td>9.9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX9278</td>
+      <td>BaEbFeSi/JfUjVnWr</td>
+      <td>SiEeBbFa/UfJrWnVj</td>
+      <td>Jr</td>
+      <td>U' R B R2 F L' D2 L R F'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>35041</th>
+      <td></td>
+      <td>9.02</td>
+      <td>9</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX9342</td>
+      <td>BbEeIiXj/JaPfUnWr</td>
+      <td>XiBeEbIj/UfJrWnPa</td>
+      <td>Jr</td>
+      <td>U R B' U2 L U2 L' R B' R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>35838</th>
+      <td></td>
+      <td>7.88</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX9835</td>
+      <td>AaDcKdXm/BfJnUpWr</td>
+      <td>XdAaKcDm/UfJrWnBp</td>
+      <td>Jr</td>
+      <td>U R U2 L U F U F' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>36693</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX10408</td>
+      <td>AbFcHjQq/JePfUnWr</td>
+      <td>FjQqAcHb/UfJrWnPe</td>
+      <td>Jr</td>
+      <td>U' R U B' U R B R' U R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>37166</th>
+      <td></td>
+      <td>9.28</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX10695</td>
+      <td>BbEcHePp/FaJfUnWr</td>
+      <td>EcHbBePp/UfJrWnFa</td>
+      <td>Jr</td>
+      <td>U R U' L F U2 F' R' U2 L'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>37167</th>
+      <td></td>
+      <td>8.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX10696</td>
+      <td>AaBbIePp/JcSfUnWr</td>
+      <td>IbBeAaPp/UfJrWnSc</td>
+      <td>Jr</td>
+      <td>U R U' L F U2 F' R' U L'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>37168</th>
+      <td></td>
+      <td>8.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX10697</td>
+      <td>DaHbPcQp/JeRfUnWr</td>
+      <td>QaDcHbPp/UfJrWnRe</td>
+      <td>Jr</td>
+      <td>U R U' L F U2 F' R' U' L'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>37422</th>
+      <td></td>
+      <td>9.46</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX10921</td>
+      <td>IaNbPdRj/JcUfWnXr</td>
+      <td>RjIbNaPd/UfJrWnXc</td>
+      <td>Jr</td>
+      <td>U R U' R2 B2 U' R U B2 R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>37491</th>
+      <td></td>
+      <td>11.18</td>
+      <td>10</td>
+      <td>10</td>
+      <td>15</td>
+      <td>JVX10959</td>
+      <td>DaKbNcSj/AdJfUnWr</td>
+      <td>SjKbNcDa/UfJrWnAd</td>
+      <td>Jr</td>
+      <td>U R U' R2 D2 F2 L' F2 D2 R</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>37494</th>
+      <td></td>
+      <td>10.38</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX10962</td>
+      <td>AaFiNjVm/JdUfWnXr</td>
+      <td>AjFaNmVi/UfJrWnXd</td>
+      <td>Jr</td>
+      <td>U R U' R2 D2 F' L' F D2 R</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>37601</th>
+      <td></td>
+      <td>9.5</td>
+      <td>10</td>
+      <td>10</td>
+      <td>15</td>
+      <td>JVX11029</td>
+      <td>DaEbPcXj/JdQfUnWr</td>
+      <td>PjXbEcDa/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U R U' R2 U2 B2 R B2 U2 R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>38333</th>
+      <td></td>
+      <td>7.48</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX11435</td>
+      <td>FdKiQjXq/AbJfUnWr</td>
+      <td>XiFqQjKd/UfJrWnAb</td>
+      <td>Jr</td>
+      <td>U' R U R B R' B2 R B' R2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>38334</th>
+      <td></td>
+      <td>7.48</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX11436</td>
+      <td>AaBbPiXp/FdJfUnWr</td>
+      <td>XiApPaBb/UfJrWnFd</td>
+      <td>Jr</td>
+      <td>U' R U' R B R' B2 R B' R2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>38694</th>
+      <td></td>
+      <td>9.56</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX11673</td>
+      <td>AaDcNdPj/JbUfWnXr</td>
+      <td>PjDdNcAa/UfJrWnXb</td>
+      <td>Jr</td>
+      <td>U R U' R D U B2 D' U' R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>39200</th>
+      <td></td>
+      <td>10.02</td>
+      <td>10</td>
+      <td>10</td>
+      <td>14</td>
+      <td>JVX11979</td>
+      <td>AaDcNdXj/JbPfUnWr</td>
+      <td>XdNcDjAa/UfJrWnPb</td>
+      <td>Jr</td>
+      <td>U R U' R' U2 B2 D' R2 D B2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>39298</th>
+      <td></td>
+      <td>10.02</td>
+      <td>10</td>
+      <td>10</td>
+      <td>14</td>
+      <td>JVX12039</td>
+      <td>AaDcNdXj/JbPfUnWr</td>
+      <td>XcDdAaNj/UfJrWnPb</td>
+      <td>Jr</td>
+      <td>U R U' R' U2 L2 D F2 D' L2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>39492</th>
+      <td></td>
+      <td>9.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX12148</td>
+      <td>AaNcPdXj/DbJfUnWr</td>
+      <td>XjAdNaPc/UfJrWnDb</td>
+      <td>Jr</td>
+      <td>U R U' R' U B2 D' R2 D B2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>39493</th>
+      <td></td>
+      <td>9.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX12149</td>
+      <td>DaNcPdXj/AbJfUnWr</td>
+      <td>XcDaPdNj/UfJrWnAb</td>
+      <td>Jr</td>
+      <td>U R U' R' U' B2 D' R2 D B2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>39715</th>
+      <td></td>
+      <td>9.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX12288</td>
+      <td>AaNcPdXj/DbJfUnWr</td>
+      <td>XdNjPcAa/UfJrWnDb</td>
+      <td>Jr</td>
+      <td>U R U' R' U L2 D F2 D' L2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>39716</th>
+      <td></td>
+      <td>9.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX12289</td>
+      <td>DaNcPdXj/AbJfUnWr</td>
+      <td>XaPcNjDd/UfJrWnAb</td>
+      <td>Jr</td>
+      <td>U R U' R' U' L2 D F2 D' L2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>40214</th>
+      <td></td>
+      <td>9.4</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX12619</td>
+      <td>BaDbPcRp/JeUfWnXr</td>
+      <td>RcDpBbPa/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>F' U' B' L' R' U2 L R B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>40355</th>
+      <td></td>
+      <td>8.4</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX12760</td>
+      <td>AaBdDiHj/JfPmUnWr</td>
+      <td>DaBiAdHj/UfJrWnPm</td>
+      <td>Jr</td>
+      <td>R B' U' B R' B' F' U' B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>40393</th>
+      <td></td>
+      <td>9.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX12798</td>
+      <td>AaIdPiQp/JbUfWnXr</td>
+      <td>PpQiAaId/UfJrWnXb</td>
+      <td>Jr</td>
+      <td>R' F R F D' U' L2 D U F2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>40610</th>
+      <td></td>
+      <td>9.0</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX13015</td>
+      <td>DcEeKjQq/JbSfUnWr</td>
+      <td>QjEeDqKc/UfJrWnSb</td>
+      <td>Jr</td>
+      <td>R U L B' R B R' U2 L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>41081</th>
+      <td></td>
+      <td>7.64</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX13486</td>
+      <td>BaDcKmSp/JdRfUnWr</td>
+      <td>BaSpDmKc/UfJrWnRd</td>
+      <td>Jr</td>
+      <td>R U L U B U B' U L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>41097</th>
+      <td></td>
+      <td>7.64</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX13502</td>
+      <td>BaDbKiSp/JdRfUnWr</td>
+      <td>KaBbDiSp/UfJrWnRd</td>
+      <td>Jr</td>
+      <td>R U L U' F U F' U' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42123</th>
+      <td></td>
+      <td>8.96</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX14528</td>
+      <td>BaDbPcRd/JfUjWnXr</td>
+      <td>BbPdRcDa/UfJrWnXj</td>
+      <td>Jr</td>
+      <td>U2 R D U' L U' L' D' U' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42217</th>
+      <td></td>
+      <td>10.2</td>
+      <td>10</td>
+      <td>10</td>
+      <td>14</td>
+      <td>JVX14622</td>
+      <td>DaKcQdRj/JbUfWnXr</td>
+      <td>QaRjKcDd/UfJrWnXb</td>
+      <td>Jr</td>
+      <td>U2 R U2 R D U B2 D' U' R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42254</th>
+      <td></td>
+      <td>10.08</td>
+      <td>9</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX14659</td>
+      <td>AaIbPiXp/JdQfUnWr</td>
+      <td>XiPpIbAa/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U2 R U' B' L' R B2 L B R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42323</th>
+      <td></td>
+      <td>9.18</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX14728</td>
+      <td>DaKdRiXj/JfQmUnWr</td>
+      <td>XiDdRjKa/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U2 R U' L2 F' L' F L' U2 R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42349</th>
+      <td></td>
+      <td>8.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX14754</td>
+      <td>DbKcQjRq/JeUfWnXr</td>
+      <td>DbQqRcKj/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>U2 R U' L B U' B' L' U' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42389</th>
+      <td></td>
+      <td>8.48</td>
+      <td>8</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX14794</td>
+      <td>AaHbPcQd/FfJjUnWr</td>
+      <td>AaPbQcHd/UfJrWnFj</td>
+      <td>Jr</td>
+      <td>U2 R U' L R' U' L' R U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42405</th>
+      <td></td>
+      <td>8.04</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX14810</td>
+      <td>BcDdRjXm/JfPnUqWr</td>
+      <td>XjDdBcRm/UfJrWnPq</td>
+      <td>Jr</td>
+      <td>U2 R U L U F U F' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42411</th>
+      <td></td>
+      <td>8.16</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX14816</td>
+      <td>HaIcNeRm/JfUjVnWr</td>
+      <td>HaRmIcNe/UfJrWnVj</td>
+      <td>Jr</td>
+      <td>U2 R U' L U' L' B U' B' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42412</th>
+      <td></td>
+      <td>8.16</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX14817</td>
+      <td>AaDcPdQp/JfSmUnWr</td>
+      <td>AaDdQcPp/UfJrWnSm</td>
+      <td>Jr</td>
+      <td>U2 R U' L U' L' B' U' B R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42464</th>
+      <td></td>
+      <td>8.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX14869</td>
+      <td>BbDdPiXp/JaRfUnWr</td>
+      <td>XiDdPbBp/UfJrWnRa</td>
+      <td>Jr</td>
+      <td>U2 R U' R B' L' B2 L B R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42488</th>
+      <td></td>
+      <td>7.88</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX14893</td>
+      <td>DbHcQjVq/EeJfUnWr</td>
+      <td>DbQqVcHj/UfJrWnEe</td>
+      <td>Jr</td>
+      <td>U2 R U' R' B' U' B F' U' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42496</th>
+      <td></td>
+      <td>8.36</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX14901</td>
+      <td>BcDdHjRq/JfUmVnWr</td>
+      <td>BjDqRcHd/UfJrWnVm</td>
+      <td>Jr</td>
+      <td>U2 R U' R' B' U' F' U' B F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42689</th>
+      <td></td>
+      <td>7.76</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15094</td>
+      <td>AaBcHdKp/IfJmUnWr</td>
+      <td>KaHpBdAc/UfJrWnIm</td>
+      <td>Jr</td>
+      <td>U' B' F' U2 B U' B' U B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42785</th>
+      <td></td>
+      <td>9.0</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15190</td>
+      <td>AaDbHcPp/BeJfUnWr</td>
+      <td>DbAaPpHc/UfJrWnBe</td>
+      <td>Jr</td>
+      <td>U B' R B' F R' B F' R' B</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42807</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15212</td>
+      <td>FaHcKdRp/BfJmUnWr</td>
+      <td>KcRpFaHd/UfJrWnBm</td>
+      <td>Jr</td>
+      <td>U' B' U2 B U B' F' U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42808</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15213</td>
+      <td>FaHcKdRp/BfJmUnWr</td>
+      <td>FaHdKcRp/UfJrWnBm</td>
+      <td>Jr</td>
+      <td>U' B' U2 B U' B' F' U B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42820</th>
+      <td></td>
+      <td>8.48</td>
+      <td>8</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15225</td>
+      <td>EaIbPdSp/JfNiUnWr</td>
+      <td>SbPdIaEp/UfJrWnNi</td>
+      <td>Jr</td>
+      <td>U B' U' B F' U' B' F U2 B</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42823</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15228</td>
+      <td>DaEbPcQp/JeUfWnXr</td>
+      <td>DbPaEpQc/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>U B' U' B F' U' B' F U B</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42824</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15229</td>
+      <td>BaHbIcPd/JfRjUnWr</td>
+      <td>BbPcHdIa/UfJrWnRj</td>
+      <td>Jr</td>
+      <td>U B' U' B F' U' B' F U' B</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42836</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15241</td>
+      <td>AaDcHdKp/JfQmUnWr</td>
+      <td>DcHaKdAp/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U B' U' B U2 B' F' U B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42912</th>
+      <td></td>
+      <td>8.56</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15317</td>
+      <td>DaEbPcQp/JeUfWnXr</td>
+      <td>DaPpEbQc/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>U F' D' U B' U' B D U' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42914</th>
+      <td></td>
+      <td>8.56</td>
+      <td>9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15319</td>
+      <td>AaDbNcPd/JfUjWnXr</td>
+      <td>PcDdNbAa/UfJrWnXj</td>
+      <td>Jr</td>
+      <td>U F' D' U' B' U' B D U' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42933</th>
+      <td></td>
+      <td>9.0</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15338</td>
+      <td>DaEbPcQp/JeUfWnXr</td>
+      <td>DbPaEpQc/UfJrWnXe</td>
+      <td>Jr</td>
+      <td>U F' L' B F' L' B' F L F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42936</th>
+      <td></td>
+      <td>8.6</td>
+      <td>9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15341</td>
+      <td>AaHdPmQp/FcJfUnWr</td>
+      <td>HdAaPpQm/UfJrWnFc</td>
+      <td>Jr</td>
+      <td>U F' L' B F' L' F L B' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42938</th>
+      <td></td>
+      <td>8.6</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15343</td>
+      <td>AaDeHiKp/JfQmUnWr</td>
+      <td>HiKaApDe/UfJrWnQm</td>
+      <td>Jr</td>
+      <td>U F' L' F' L' B F L B' F</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>42952</th>
+      <td></td>
+      <td>8.32</td>
+      <td>8</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15357</td>
+      <td>AaDbHdQp/JfKiUnWr</td>
+      <td>QbDdAaHp/UfJrWnKi</td>
+      <td>Jr</td>
+      <td>U F' U2 B' F U' B F' U' F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42955</th>
+      <td></td>
+      <td>8.0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15360</td>
+      <td>FaHcPdQp/AfJmUnWr</td>
+      <td>FpQdPaHc/UfJrWnAm</td>
+      <td>Jr</td>
+      <td>U F' U2 B' F U' F' U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42975</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15380</td>
+      <td>AaDbHcPp/BeJfUnWr</td>
+      <td>DbAaPpHc/UfJrWnBe</td>
+      <td>Jr</td>
+      <td>U F' U B' F U' B F' U' F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42976</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15381</td>
+      <td>DaHbPcQd/JfRjUnWr</td>
+      <td>PbQcDdHa/UfJrWnRj</td>
+      <td>Jr</td>
+      <td>U F' U' B' F U' B F' U' F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42981</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15386</td>
+      <td>DaHcQdRp/JfPmUnWr</td>
+      <td>RcDaQpHd/UfJrWnPm</td>
+      <td>Jr</td>
+      <td>U F' U B' F U' F' U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>42982</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15387</td>
+      <td>AaBcHdPp/DfJmUnWr</td>
+      <td>BaPcAdHp/UfJrWnDm</td>
+      <td>Jr</td>
+      <td>U F' U' B' F U' F' U' B F</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43148</th>
+      <td></td>
+      <td>7.76</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15553</td>
+      <td>AaBiDjPm/HdJfUnWr</td>
+      <td>PiDmBjAa/UfJrWnHd</td>
+      <td>Jr</td>
+      <td>U' L R U B U' B' U L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>43159</th>
+      <td></td>
+      <td>7.76</td>
+      <td>11</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15564</td>
+      <td>AaBeDiPj/HbJfUnWr</td>
+      <td>PiAaDjBe/UfJrWnHb</td>
+      <td>Jr</td>
+      <td>U L R U' F U' F' U' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>43169</th>
+      <td></td>
+      <td>8.08</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15574</td>
+      <td>AaDbHcKj/JdQfUnWr</td>
+      <td>KbAaDcHj/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U' L R U L' R' U2 R U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43180</th>
+      <td></td>
+      <td>7.92</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15585</td>
+      <td>FaHbRcVj/JdQfUnWr</td>
+      <td>FaHjVcRb/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U L R U' L' R' U R U2 R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43181</th>
+      <td></td>
+      <td>7.92</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15586</td>
+      <td>FaHbRcVj/JdQfUnWr</td>
+      <td>FaHjVcRb/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U' L R U L' R' U' R U2 R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43188</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15593</td>
+      <td>AaBbKcXd/DfJjUnWr</td>
+      <td>XdAaBcKb/UfJrWnDj</td>
+      <td>Jr</td>
+      <td>U L R U' L' U2 L U L' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43190</th>
+      <td></td>
+      <td>8.48</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15595</td>
+      <td>EbHcNdVj/FaJfUnWr</td>
+      <td>EcVdNbHj/UfJrWnFa</td>
+      <td>Jr</td>
+      <td>U L R U' L' U' L R' U2 L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43193</th>
+      <td></td>
+      <td>8.08</td>
+      <td>9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15598</td>
+      <td>AaHbIdNj/JcPfUnWr</td>
+      <td>IdNbAaHj/UfJrWnPc</td>
+      <td>Jr</td>
+      <td>U L R U' L' U' L R' U L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43194</th>
+      <td></td>
+      <td>8.08</td>
+      <td>9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15599</td>
+      <td>BaDcHdVj/JbRfUnWr</td>
+      <td>BaDcVdHj/UfJrWnRb</td>
+      <td>Jr</td>
+      <td>U L R U' L' U' L R' U' L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43203</th>
+      <td></td>
+      <td>7.92</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15608</td>
+      <td>BbEcIdKj/JaSfUnWr</td>
+      <td>IdKbBcEj/UfJrWnSa</td>
+      <td>Jr</td>
+      <td>U L R U R' U2 L' R U' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43205</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15610</td>
+      <td>AaDbKcXd/BfJjUnWr</td>
+      <td>XbKdDcAa/UfJrWnBj</td>
+      <td>Jr</td>
+      <td>U' L R U R' U2 R U' L' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43211</th>
+      <td></td>
+      <td>7.6</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15616</td>
+      <td>AaBcHdKj/IbJfUnWr</td>
+      <td>KdHjBcAa/UfJrWnIb</td>
+      <td>Jr</td>
+      <td>U' L R U R' U' R U2 L' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43246</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15651</td>
+      <td>BbEcIdXj/JaPfUnWr</td>
+      <td>XdBbEcIj/UfJrWnPa</td>
+      <td>Jr</td>
+      <td>U L U' L' R U2 L U L' R'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43248</th>
+      <td></td>
+      <td>8.48</td>
+      <td>8</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15653</td>
+      <td>AaDcHdQj/JbKfUnWr</td>
+      <td>QcDdAjHa/UfJrWnKb</td>
+      <td>Jr</td>
+      <td>U L U' L' R U' L R' U2 L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43252</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15657</td>
+      <td>AaBbHdVj/FcJfUnWr</td>
+      <td>VdAjBbHa/UfJrWnFc</td>
+      <td>Jr</td>
+      <td>U L U' L' R U' L R' U L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43253</th>
+      <td></td>
+      <td>8.08</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15658</td>
+      <td>DaEbHcPd/JfNjUnWr</td>
+      <td>EbPcDdHa/UfJrWnNj</td>
+      <td>Jr</td>
+      <td>U L U' L' R U' L R' U' L'</td>
+      <td>RUL</td>
+    </tr>
+    <tr>
+      <th>43340</th>
+      <td></td>
+      <td>9.0</td>
+      <td>8</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX15745</td>
+      <td>AaBbHdVj/FcJfUnWr</td>
+      <td>VdAjBbHa/UfJrWnFc</td>
+      <td>Jr</td>
+      <td>U R B' L' R B' L R' B R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>43344</th>
+      <td></td>
+      <td>9.9</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX15749</td>
+      <td>BaEbFeSi/JfUjVnWr</td>
+      <td>SiEeBbFa/UfJrWnVj</td>
+      <td>Jr</td>
+      <td>U' R B R2 F L' D2 L R F'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>43366</th>
+      <td></td>
+      <td>9.02</td>
+      <td>9</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX15771</td>
+      <td>BbEeIiXj/JaPfUnWr</td>
+      <td>XiBeEbIj/UfJrWnPa</td>
+      <td>Jr</td>
+      <td>U R B' U2 L U2 L' R B' R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>43533</th>
+      <td></td>
+      <td>7.88</td>
+      <td>11</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX15938</td>
+      <td>AaDcKdXm/BfJnUpWr</td>
+      <td>XdAaKcDm/UfJrWnBp</td>
+      <td>Jr</td>
+      <td>U R U2 L U F U F' L' R'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>43772</th>
+      <td></td>
+      <td>7.76</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>JVX16177</td>
+      <td>AbFcHjQq/JePfUnWr</td>
+      <td>FjQqAcHb/UfJrWnPe</td>
+      <td>Jr</td>
+      <td>U' R U B' U R B R' U R'</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>43861</th>
+      <td></td>
+      <td>9.28</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX16266</td>
+      <td>BbEcHePp/FaJfUnWr</td>
+      <td>EcHbBePp/UfJrWnFa</td>
+      <td>Jr</td>
+      <td>U R U' L F U2 F' R' U2 L'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>43862</th>
+      <td></td>
+      <td>8.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX16267</td>
+      <td>AaBbIePp/JcSfUnWr</td>
+      <td>IbBeAaPp/UfJrWnSc</td>
+      <td>Jr</td>
+      <td>U R U' L F U2 F' R' U L'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>43863</th>
+      <td></td>
+      <td>8.88</td>
+      <td>10</td>
+      <td>10</td>
+      <td>11</td>
+      <td>JVX16268</td>
+      <td>DaHbPcQp/JeRfUnWr</td>
+      <td>QaDcHbPp/UfJrWnRe</td>
+      <td>Jr</td>
+      <td>U R U' L F U2 F' R' U' L'</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>44039</th>
+      <td></td>
+      <td>9.46</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX16444</td>
+      <td>IaNbPdRj/JcUfWnXr</td>
+      <td>RjIbNaPd/UfJrWnXc</td>
+      <td>Jr</td>
+      <td>U R U' R2 B2 U' R U B2 R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>44046</th>
+      <td></td>
+      <td>11.18</td>
+      <td>10</td>
+      <td>10</td>
+      <td>15</td>
+      <td>JVX16451</td>
+      <td>DaKbNcSj/AdJfUnWr</td>
+      <td>SjKbNcDa/UfJrWnAd</td>
+      <td>Jr</td>
+      <td>U R U' R2 D2 F2 L' F2 D2 R</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>44049</th>
+      <td></td>
+      <td>10.38</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX16454</td>
+      <td>AaFiNjVm/JdUfWnXr</td>
+      <td>AjFaNmVi/UfJrWnXd</td>
+      <td>Jr</td>
+      <td>U R U' R2 D2 F' L' F D2 R</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>44060</th>
+      <td></td>
+      <td>9.5</td>
+      <td>10</td>
+      <td>10</td>
+      <td>15</td>
+      <td>JVX16465</td>
+      <td>DaEbPcXj/JdQfUnWr</td>
+      <td>PjXbEcDa/UfJrWnQd</td>
+      <td>Jr</td>
+      <td>U R U' R2 U2 B2 R B2 U2 R</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>44123</th>
+      <td></td>
+      <td>7.48</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX16528</td>
+      <td>FdKiQjXq/AbJfUnWr</td>
+      <td>XiFqQjKd/UfJrWnAb</td>
+      <td>Jr</td>
+      <td>U' R U R B R' B2 R B' R2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>44124</th>
+      <td></td>
+      <td>7.48</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX16529</td>
+      <td>AaBbPiXp/FdJfUnWr</td>
+      <td>XiApPaBb/UfJrWnFd</td>
+      <td>Jr</td>
+      <td>U' R U' R B R' B2 R B' R2</td>
+      <td>RFU</td>
+    </tr>
+    <tr>
+      <th>44224</th>
+      <td></td>
+      <td>9.56</td>
+      <td>10</td>
+      <td>10</td>
+      <td>12</td>
+      <td>JVX16629</td>
+      <td>AaDcNdPj/JbUfWnXr</td>
+      <td>PjDdNcAa/UfJrWnXb</td>
+      <td>Jr</td>
+      <td>U R U' R D U B2 D' U' R2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>44292</th>
+      <td></td>
+      <td>10.02</td>
+      <td>10</td>
+      <td>10</td>
+      <td>14</td>
+      <td>JVX16697</td>
+      <td>AaDcNdXj/JbPfUnWr</td>
+      <td>XdNcDjAa/UfJrWnPb</td>
+      <td>Jr</td>
+      <td>U R U' R' U2 B2 D' R2 D B2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>44310</th>
+      <td></td>
+      <td>10.02</td>
+      <td>10</td>
+      <td>10</td>
+      <td>14</td>
+      <td>JVX16715</td>
+      <td>AaDcNdXj/JbPfUnWr</td>
+      <td>XcDdAaNj/UfJrWnPb</td>
+      <td>Jr</td>
+      <td>U R U' R' U2 L2 D F2 D' L2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>44327</th>
+      <td></td>
+      <td>9.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX16732</td>
+      <td>AaNcPdXj/DbJfUnWr</td>
+      <td>XjAdNaPc/UfJrWnDb</td>
+      <td>Jr</td>
+      <td>U R U' R' U B2 D' R2 D B2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>44328</th>
+      <td></td>
+      <td>9.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX16733</td>
+      <td>DaNcPdXj/AbJfUnWr</td>
+      <td>XcDaPdNj/UfJrWnAb</td>
+      <td>Jr</td>
+      <td>U R U' R' U' B2 D' R2 D B2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>44373</th>
+      <td></td>
+      <td>9.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX16778</td>
+      <td>AaNcPdXj/DbJfUnWr</td>
+      <td>XdNjPcAa/UfJrWnDb</td>
+      <td>Jr</td>
+      <td>U R U' R' U L2 D F2 D' L2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>44374</th>
+      <td></td>
+      <td>9.78</td>
+      <td>10</td>
+      <td>10</td>
+      <td>13</td>
+      <td>JVX16779</td>
+      <td>DaNcPdXj/AbJfUnWr</td>
+      <td>XaPcNjDd/UfJrWnAb</td>
+      <td>Jr</td>
+      <td>U R U' R' U' L2 D F2 D' L2</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+            </div><!-- /.col -->
+            <div class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top" src="img/Jr.png"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Pattern Jr</h5>
+<table border="1" class="table table-small">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+                    </div>
+                </div><!-- /.card -->
+            </div><!-- /.col -->
+        </div><!-- /.bf-pattern -->
+        <div class="clearfix"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js" async></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+         $(function(){
+             function vcurl(alg) {
+                 var src = "https://www.speedsolving.com/wiki/extensions/algdb/vcube/visualcube.php?";
+                 src += $.param({
+                     'fmt': 'png',
+                     'bg': 'w',
+                     'size': '256',
+                     'sch': 'ygrwbo',
+                     'stage': 'wv',
+                     'case': alg,
+                 });
+                 return src;
+             }
+             function acurl(alg) {
+                 var src = "https://alg.cubing.net/?";
+                 src += $.param({
+                     'stage': 'F2L',
+                     'type': 'alg',
+                     'view': 'playback',
+                     'alg': alg,
+                 });
+                 return src;
+             }
+             
+             $('#lastSlot').click(function(event){
+                 console.log(event);
+                 var $data = $(event.target.parentElement);
+                 $('.dataframe').search("[C-Z]V[0-9]", true, false);
+             });
+             
+             $('.dataframe tr').each(function(index, value){
+                 var alg = value.childNodes[21].textContent;
+                 if (alg == "alg") return;
+                 alg = alg.replace(/'/g, '-');
+                 alg = alg.replace(/ /g, '_');
+                 var code = '<a class="btn btn-sm btn-primary" href="' + acurl(alg) + '">Show</a>';
+                 $(value.childNodes[3]).html(code);
+             });
+             
+             $('.dataframe tr').click(function(event){
+                 $('.dataframe tr').each(function(index, value){
+                     $(value).removeClass('bg-primary');
+                 });
+                 var $data = $(event.target.parentElement);
+                 var alg = $data[0].childNodes[21].textContent;
+                 var $view = $('.bf-pattern');
+                 $data.addClass('bg-primary');
+                 $view.find('img').attr('src', vcurl(alg));
+             });
+             
+             $('.dataframe').DataTable({
+                 order: [[2, 'asc']],
+             });
+         });
+        </script>
+    </body>
+</html>
