@@ -5900,7 +5900,7 @@
              $('#lastSlot').click(function(event){
                  var query = ''
                  if (event.target.checked) {
-                     query = /^[C-T]V[0-9]*$/;
+                     query = '^[C-T]V[0-9]+$';
                  }
                  window.db.column(6).search(query, true, false, false).draw();
              });
