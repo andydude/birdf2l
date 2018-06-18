@@ -3083,7 +3083,7 @@
                  $view.find('img').attr('src', vcurl(alg));
              });
              
-             $('.dataframe').DataTable({
+             window.db = $('.dataframe').DataTable({
                  order: [[2, 'asc']],
              });
          });
