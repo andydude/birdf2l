@@ -232,7 +232,7 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>row</th>
+      <th>show</th>
       <th>speed</th>
       <th>stm</th>
       <th>htm</th>
@@ -246,132 +246,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>16652</th>
-      <td></td>
-      <td>8.54</td>
-      <td>8</td>
-      <td>9</td>
-      <td>10</td>
-      <td>IUV5741</td>
-      <td>BaEbJcKd/DlLnWpXr</td>
-      <td>JdKcEaBb/DpLlWnXr</td>
-      <td>Ll</td>
-      <td>F U' F D U' B' R2 B D'</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>25794</th>
-      <td></td>
-      <td>10.1</td>
-      <td>8</td>
-      <td>10</td>
-      <td>13</td>
-      <td>JUV3034</td>
-      <td>McPjQmRq/IeLlWnXr</td>
-      <td>PmMqRcQj/IeLlWnXr</td>
-      <td>Ll</td>
-      <td>F U2 L R' F' L' R F2 U2 F</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>25845</th>
-      <td></td>
-      <td>9.9</td>
-      <td>8</td>
-      <td>10</td>
-      <td>13</td>
-      <td>JUV3067</td>
-      <td>EcFeKjMq/LlNmWnXr</td>
-      <td>MeFjKcEq/NmLlWnXr</td>
-      <td>Ll</td>
-      <td>F U2 F2 L R' F' L' R U2 F</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>27928</th>
-      <td></td>
-      <td>8.8</td>
-      <td>10</td>
-      <td>10</td>
-      <td>10</td>
-      <td>JUV4588</td>
-      <td>CbFcKdNq/LjRlWnXr</td>
-      <td>CbFqKcNd/RjLlWnXr</td>
-      <td>Ll</td>
-      <td>F U' F' L' B' F' U B F L</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>28076</th>
-      <td></td>
-      <td>9.08</td>
-      <td>10</td>
-      <td>10</td>
-      <td>10</td>
-      <td>JUV4683</td>
-      <td>CbFcKdNq/LjRlWnXr</td>
-      <td>CbFqKcNd/RjLlWnXr</td>
-      <td>Ll</td>
-      <td>F U' F' R' D' U' F D U R</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>45596</th>
-      <td></td>
-      <td>10.1</td>
-      <td>8</td>
-      <td>10</td>
-      <td>13</td>
-      <td>JUV17412</td>
-      <td>McPjQmRq/IeLlWnXr</td>
-      <td>PmMqRcQj/IeLlWnXr</td>
-      <td>Ll</td>
-      <td>F U2 L R' F' L' R F2 U2 F</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>45632</th>
-      <td></td>
-      <td>9.9</td>
-      <td>8</td>
-      <td>10</td>
-      <td>13</td>
-      <td>JUV17430</td>
-      <td>EcFeKjMq/LlNmWnXr</td>
-      <td>MeFjKcEq/NmLlWnXr</td>
-      <td>Ll</td>
-      <td>F U2 F2 L R' F' L' R U2 F</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>46756</th>
-      <td></td>
-      <td>8.8</td>
-      <td>10</td>
-      <td>10</td>
-      <td>10</td>
-      <td>JUV17992</td>
-      <td>CbFcKdNq/LjRlWnXr</td>
-      <td>CbFqKcNd/RjLlWnXr</td>
-      <td>Ll</td>
-      <td>F U' F' L' B' F' U B F L</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>46862</th>
-      <td></td>
-      <td>9.08</td>
-      <td>10</td>
-      <td>10</td>
-      <td>10</td>
-      <td>JUV18045</td>
-      <td>CbFcKdNq/LjRlWnXr</td>
-      <td>CbFqKcNd/RjLlWnXr</td>
-      <td>Ll</td>
-      <td>F U' F' R' D' U' F D U R</td>
-      <td></td>
-    </tr>
   </tbody>
 </table>
             </div><!-- /.col -->
@@ -426,9 +300,11 @@
              }
              
              $('#lastSlot').click(function(event){
-                 console.log(event);
-                 var $data = $(event.target.parentElement);
-                 $('.dataframe').search("[C-Z]V[0-9]", true, false);
+                 var query = ''
+                 if (event.target.checked) {
+                     query = /^[C-T]V[0-9]*$/;
+                 }
+                 window.db.column(6).search(query, true, false, false).draw();
              });
              
              $('.dataframe tr').each(function(index, value){

@@ -232,7 +232,7 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>row</th>
+      <th>show</th>
       <th>speed</th>
       <th>stm</th>
       <th>htm</th>
@@ -247,7 +247,7 @@
   </thead>
   <tbody>
     <tr>
-      <th>4613</th>
+      <th>3938</th>
       <td></td>
       <td>6.7</td>
       <td>8</td>
@@ -261,7 +261,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>4741</th>
+      <th>4002</th>
       <td></td>
       <td>7.08</td>
       <td>8</td>
@@ -275,7 +275,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>4967</th>
+      <th>4115</th>
       <td></td>
       <td>7.94</td>
       <td>8</td>
@@ -289,7 +289,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>5119</th>
+      <th>4191</th>
       <td></td>
       <td>7.0</td>
       <td>8</td>
@@ -303,7 +303,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>6821</th>
+      <th>5042</th>
       <td></td>
       <td>6.52</td>
       <td>8</td>
@@ -317,7 +317,7 @@
       <td>RFU</td>
     </tr>
     <tr>
-      <th>6831</th>
+      <th>5047</th>
       <td></td>
       <td>6.82</td>
       <td>8</td>
@@ -331,7 +331,7 @@
       <td>RFU</td>
     </tr>
     <tr>
-      <th>13647</th>
+      <th>10405</th>
       <td></td>
       <td>8.38</td>
       <td>9</td>
@@ -345,7 +345,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>17103</th>
+      <th>12133</th>
       <td></td>
       <td>7.28</td>
       <td>9</td>
@@ -359,7 +359,7 @@
       <td>RFU</td>
     </tr>
     <tr>
-      <th>17125</th>
+      <th>12144</th>
       <td></td>
       <td>7.8</td>
       <td>9</td>
@@ -373,7 +373,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>24615</th>
+      <th>17004</th>
       <td></td>
       <td>9.0</td>
       <td>10</td>
@@ -387,7 +387,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>26013</th>
+      <th>17841</th>
       <td></td>
       <td>9.5</td>
       <td>9</td>
@@ -401,7 +401,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>26461</th>
+      <th>18148</th>
       <td></td>
       <td>8.6</td>
       <td>10</td>
@@ -415,7 +415,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>44631</th>
+      <th>31596</th>
       <td></td>
       <td>9.0</td>
       <td>10</td>
@@ -429,7 +429,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>45753</th>
+      <th>32157</th>
       <td></td>
       <td>9.5</td>
       <td>9</td>
@@ -443,7 +443,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>46035</th>
+      <th>32298</th>
       <td></td>
       <td>8.6</td>
       <td>10</td>
@@ -510,9 +510,11 @@
              }
              
              $('#lastSlot').click(function(event){
-                 console.log(event);
-                 var $data = $(event.target.parentElement);
-                 $('.dataframe').search("[C-Z]V[0-9]", true, false);
+                 var query = ''
+                 if (event.target.checked) {
+                     query = /^[C-T]V[0-9]*$/;
+                 }
+                 window.db.column(6).search(query, true, false, false).draw();
              });
              
              $('.dataframe tr').each(function(index, value){

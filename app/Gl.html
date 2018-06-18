@@ -232,7 +232,7 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>row</th>
+      <th>show</th>
       <th>speed</th>
       <th>stm</th>
       <th>htm</th>
@@ -246,62 +246,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>6028</th>
-      <td></td>
-      <td>9.5</td>
-      <td>8</td>
-      <td>8</td>
-      <td>13</td>
-      <td>HUV2919</td>
-      <td>AaDbNdVp/CcGlWnXr</td>
-      <td>AaVdNpDb/CcGlWnXr</td>
-      <td>Gl</td>
-      <td>F' R2 U2 F' R2 F U2 R2</td>
-      <td>RFU</td>
-    </tr>
-    <tr>
-      <th>6034</th>
-      <td></td>
-      <td>8.7</td>
-      <td>8</td>
-      <td>8</td>
-      <td>11</td>
-      <td>HUV2922</td>
-      <td>DaMbNdVp/GcRlWnXr</td>
-      <td>DbVaNpMd/RcGlWnXr</td>
-      <td>Gl</td>
-      <td>F' R2 U F' R2 F U' R2</td>
-      <td>RFU</td>
-    </tr>
-    <tr>
-      <th>15374</th>
-      <td></td>
-      <td>9.82</td>
-      <td>9</td>
-      <td>9</td>
-      <td>14</td>
-      <td>IUV5102</td>
-      <td>BaDbJdKp/GcRlWnXr</td>
-      <td>BbJaKdDp/RcGlWnXr</td>
-      <td>Gl</td>
-      <td>F' U' R2 U2 F' R2 F U2 R2</td>
-      <td>RFU</td>
-    </tr>
-    <tr>
-      <th>15378</th>
-      <td></td>
-      <td>9.18</td>
-      <td>9</td>
-      <td>9</td>
-      <td>12</td>
-      <td>IUV5104</td>
-      <td>AaDbJdKp/GcNlWnXr</td>
-      <td>DpJbKdAa/NcGlWnXr</td>
-      <td>Gl</td>
-      <td>F' U' R2 U F' R2 F U' R2</td>
-      <td>RFU</td>
-    </tr>
   </tbody>
 </table>
             </div><!-- /.col -->
@@ -356,9 +300,11 @@
              }
              
              $('#lastSlot').click(function(event){
-                 console.log(event);
-                 var $data = $(event.target.parentElement);
-                 $('.dataframe').search("[C-Z]V[0-9]", true, false);
+                 var query = ''
+                 if (event.target.checked) {
+                     query = /^[C-T]V[0-9]*$/;
+                 }
+                 window.db.column(6).search(query, true, false, false).draw();
              });
              
              $('.dataframe tr').each(function(index, value){

@@ -232,7 +232,7 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>row</th>
+      <th>show</th>
       <th>speed</th>
       <th>stm</th>
       <th>htm</th>
@@ -247,7 +247,7 @@
   </thead>
   <tbody>
     <tr>
-      <th>25463</th>
+      <th>17503</th>
       <td></td>
       <td>9.6</td>
       <td>10</td>
@@ -261,7 +261,7 @@
       <td></td>
     </tr>
     <tr>
-      <th>40350</th>
+      <th>27422</th>
       <td></td>
       <td>9.6</td>
       <td>10</td>
@@ -328,9 +328,11 @@
              }
              
              $('#lastSlot').click(function(event){
-                 console.log(event);
-                 var $data = $(event.target.parentElement);
-                 $('.dataframe').search("[C-Z]V[0-9]", true, false);
+                 var query = ''
+                 if (event.target.checked) {
+                     query = /^[C-T]V[0-9]*$/;
+                 }
+                 window.db.column(6).search(query, true, false, false).draw();
              });
              
              $('.dataframe tr').each(function(index, value){
