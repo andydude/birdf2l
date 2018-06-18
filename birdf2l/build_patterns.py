@@ -15,10 +15,15 @@ def render_pattern(pat):
     algtable = ALG[ALG.patid == pat['patid']].to_html()
     algtable = algtable.replace(
         'dataframe', 'dataframe table table-bordered table-hover')
-    infotable = DataFrame([
-        ('F2L', '<b>{}</b>'.format(pat['num'])),
-        ('CubeFreak', '<samp>{}</samp>'.format(pat['cubefreak'])),
-    ], dtype=str).to_html()
+    infotable = []
+    if pat['num']:
+        infotable += [('F2L', pat['num'])]
+    if pat['cubefreak']:
+        infotable += [('CubeFreak', pat['cubefreak'])]
+    if pat['mirpatid']:
+        infotable += [('Mirror',
+            '<a href="{0}.html">{0}</a>'.format(pat['mirpatid']))]
+    infotable = DataFrame(infotable, dtype=str).to_html()
     infotable = infotable.replace(
         'dataframe', 'table table-small')
     infotable = infotable.replace(
@@ -34,21 +39,23 @@ def render_pattern(pat):
         infotable=infotable,
         **context)
     return s
-    
+
+
 def main():
+    navbar = ENV.get_template('navbar.html').render()
     pats = list(PAT.transpose().to_dict().values())
-    content = ''
+    
     for pat in pats:
-        try:
-            content += render_pattern(pat)
-        except Exception as exc:
-            #print(repr(exc))
-            pass
-            
-    template = ENV.get_template('base.html')
-    page = template.render(content=content)
-    print(page)
+        with open("app/" + pat['patid'] + ".html", "w") as writer:
+            try:
+                content = render_pattern(pat)
+                template = ENV.get_template('base.html')
+                page = template.render(content=content, navbar=navbar)
+                writer.write(page)
+            except Exception as exc:
+                print(repr(exc))
+                pass
 
-
+        
 if __name__ == '__main__':
     main()

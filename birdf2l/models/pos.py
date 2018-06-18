@@ -61,21 +61,21 @@ class Pos(PosBase):
         ep=(0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 8),
         rp=(0, 1, 2, 3, 4, 5))
 
-    X = PosBase(
+    x = PosBase(
         co=(2, 1, 2, 1, 2, 1, 2, 1),
         cp=(7, 6, 1, 0, 3, 2, 5, 4),
         eo=(1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1),
         ep=(10, 6, 0, 7, 3, 1, 9, 11, 2, 5, 8, 4),
         rp=(5, 4, 2, 3, 0, 1))
 
-    Y = PosBase(
+    y = PosBase(
         co=(0, 0, 0, 0, 0, 0, 0, 0),
         cp=(1, 2, 3, 0, 7, 4, 5, 6),
         eo=(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
         ep=(1, 2, 3, 0, 7, 4, 5, 6, 11, 8, 9, 10),
         rp=(0, 1, 4, 5, 3, 2))
 
-    Z = PosBase(
+    z = PosBase(
         co=(1, 2, 1, 2, 1, 2, 1, 2),
         cp=(1, 6, 5, 2, 3, 4, 7, 0),
         eo=(0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1),
@@ -95,19 +95,21 @@ class Pos(PosBase):
                      for ix in range(8)),
             rp=tuple(action.rp[self.rp[ix]]
                      for ix in range(6)))
-
+    
     @classmethod
-    def from_alg(cls, moves):
-        assert isinstance(moves, six.string_types)
-        cube_state = cls(*cls.SOLVED)
-        for move in moves.split(' '):
+    def from_alg(cls, steps):
+        assert isinstance(steps, six.string_types)
+        self = cls(*cls.SOLVED)
+        for step in steps.split(' '):
             try:
-                move_state = getattr(cls, move)
-                cube_state = cube_state(move_state)
+                self = self.from_step(step)
             except Exception as exc:
                 LOG.exception(exc)
                 raise
-        return cube_state
+        return self
+
+    def from_step(self, step):
+        return self(getattr(type(self), step))
 
     def copy(self):
         return type(self)(
@@ -127,9 +129,11 @@ class Pos(PosBase):
     @classmethod
     def init(cls):
         setattr(cls, "", cls.SOLVED)
-        for move in ["U", "R", "F", "D", "L", "B", "X", "Y", "Z"]:
+        for move in ["U", "R", "F", "D", "L", "B", "x", "y", "z"]:
             cls.init_alg(move + "2", "{} {}".format(move, move))
             cls.init_alg(move + "'", "{} {} {}".format(move, move, move))
+
+    # END CORE CLASS
 
     def is_f2l(self):
         try:
@@ -330,53 +334,6 @@ class Pos(PosBase):
     
     def is_f2l_uw(self):
         return False
-
-    def is_ll(self):
-        try:
-            # cross
-            assert self.eo[8] == 0
-            assert self.eo[9] == 0
-            assert self.eo[10] == 0
-            assert self.eo[11] == 0
-            assert self.ep[8] == 8
-            assert self.ep[9] == 9
-            assert self.ep[10] == 10
-            assert self.ep[11] == 11
-
-            # U slot
-            assert self.eo[4] == 0
-            assert self.ep[4] == 4
-            assert self.co[4] == 0
-            assert self.cp[4] == 4
-            
-            # V slot
-            assert self.eo[5] == 0
-            assert self.ep[5] == 5
-            assert self.co[5] == 0
-            assert self.cp[5] == 5
-            
-            # W slot
-            assert self.eo[6] == 0
-            assert self.ep[6] == 6
-            assert self.co[6] == 0
-            assert self.cp[6] == 6
-            
-            # X slot
-            assert self.eo[7] == 0
-            assert self.ep[7] == 7
-            assert self.co[7] == 0
-            assert self.cp[7] == 7
-            
-            return True
-        except:
-            return False
-    
-    def to_pos_id(self):
-        return None
-
-    def to_f2l_pat_id(self):
-        return None
-
 
 
 Pos.init()

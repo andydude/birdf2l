@@ -1,61 +1,108 @@
 import json
 import sys
 from argparse import ArgumentParser
-from .speed import speed
-from .posid import posid
+from pandas import read_csv, DataFrame
 from .generators import generators
-from .parallel import metrics
 from .models.pos import Pos
+from .parallel import metrics
+from .plugins import f2la
+from .posid import posid
+from .speed import speed
 
+# TODO: port to birdf2l
+from cubecode.canon import canonicalize1
+
+
+#ALG = read_csv("fixtures/alg.csv", dtype=str, keep_default_na=False)
+PAT = read_csv("fixtures/pat.csv", dtype=str, keep_default_na=False)
+PAT_D = list(PAT.transpose().to_dict().values())
+PAT_IDS = [pat['patid'] for pat in PAT_D]
 
 ID = {}
 ALPHA = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
-def get_f2l_type(alg):
-    try:
-        state = Pos.from_alg(alg)
-    except:
-        return ""
-    if state.is_ll():
-        name = ""
-    elif state.is_f2l_u():
-        name = "U"
-    elif state.is_f2l():
-        name = "V"
-    elif state.is_f2l_w():
-        name = "W"
-    elif state.is_f2l_x():
-        name = "X"
-    elif state.is_f2l_uv():
-        name = "UV"
-    elif state.is_f2l_vw():
-        name = "VW"
-    elif state.is_f2l_wx():
-        name = "WX"
-    elif state.is_f2l_xu():
-        name = "XU"
-    elif state.is_f2l_uw():
-        name = "UW"
-    elif state.is_f2l_vx():
-        name = "VX"
-    else:
-        name = "?"
+def get_f2l_type(alg, pos=None):
+    if not pos:
+        pos = Pos.from_alg(alg)
+    name = ""
+    if not f2la.has_u_slot(pos):
+        name += "U"
+    if not f2la.has_v_slot(pos):
+        name += "V"
+    if not f2la.has_w_slot(pos):
+        name += "W"
+    if not f2la.has_x_slot(pos):
+        name += "X"
     return name
 
 
-def algid(nmoves, alg=''):
+def algid(nmoves, alg='', isoob=False):
     name = "!"
-    if alg:
-        name = get_f2l_type(alg)
+    if not alg:
+        return
     if not nmoves in ID:
         ID[nmoves] = 0
     ID[nmoves] += 1
+    name = get_f2l_type(alg)
+    if isoob:
+        if name == 'VW':
+            alg2 = canonicalize1("y' " + alg + " y")
+            print_oob_alg(nmoves, 'UV', alg2)
+        elif name == 'VWX':
+            alg2 = canonicalize1("y' " + alg + " y")
+            print_oob_alg(nmoves, 'UVW', alg2)
+            alg3 = canonicalize1("y2 " + alg + " y2")
+            print_oob_alg(nmoves, 'UVX', alg3)
+            alg4 = canonicalize1("y " + alg + " y'")
+            print_oob_alg(nmoves, 'UWX', alg4)
     return '{}{}{}'.format(
-        ALPHA[nmoves], name, 
+        ALPHA[nmoves], name,
         ID[nmoves])
 
 
+def rotate_line(line, id=None, ann=None, isoob=False):
+    parts = line.split(',')
+    try:
+        if len(parts) == 0:
+            raise ValueError
+        elif len(parts) == 1:
+
+            # 1 column means: alg
+            alg = parts[0]
+            names = ''
+        else:
+            
+            # 2+ columns mean: alg, names
+            alg = parts[-2]
+            names = parts[-1]
+
+        ann0 = ann
+        alg0 = alg
+        if alg0.startswith("U"):
+            alg0 = alg0[alg0.index(" ") + 1:]
+        for us in ['', "U ", "U2 ", "U' "]:
+            alg = us + alg0
+            htm = alg.count(' ') + 1
+            id = id if id else algid(htm)
+            ann = annotate(alg, id, names)
+            if ann['patid'] in PAT_IDS:
+                print(format_annotation(**ann))
+                break
+        else:
+            print("# could not find F2L pattern match for alg " + alg)
+    except Exception as exc:
+        print("# " + repr(exc))
+        raise
+
+        
+def print_oob_alg(nmoves, name, alg=''):
+    id = '{}{}{}'.format(
+        ALPHA[nmoves], name,
+        ID[nmoves])
+    rotate_line(alg, id, isoob=True)
+
+    
 def ollid1(up):
     assert len(up) == 8
     up = ''.join(sorted(list(up)))
@@ -92,7 +139,7 @@ def patid(posid):
     else:
         return "Vj"
 
-    
+
 def annotate(alg, algid='', names=''):
     gens = generators(alg) or ''
     pos = posid(alg)
@@ -139,6 +186,7 @@ def format_annotation(**kwargs):
 
 
 def add_arguments(parser):
+    parser.add_argument('--oob', action='store_true')
     parser.add_argument('--csv', action='store_true')
     parser.add_argument('--json', action='store_true')
     return parser
@@ -147,14 +195,16 @@ def add_arguments(parser):
 def main():
     parser = add_arguments(ArgumentParser())
     options = vars(parser.parse_args(sys.argv[1:]))
-    if options.get('csv', False):
-        print("row,speed,stm,htm,qtm,algid,ollid,posid,patid,alg,notes")
-    lines = sys.stdin.read()
-    for line in lines.split('\n'):
+    iscsv = options.get('csv', False)
+    isoob = options.get('oob', False)
+    if iscsv:
+        print("show,speed,stm,htm,qtm,algid,ollid,posid,patid,alg,notes")
+    for line in sys.stdin:
         if line.startswith('htm'):
             continue
         if not line.strip():
             continue
+        line = line.strip()
         parts = line.split(',')
         try:
             if len(parts) == 0:
@@ -165,21 +215,23 @@ def main():
                 alg = parts[0]
                 names = ''
             else:
-                
+
                 # 2+ columns mean: alg, names
                 alg = parts[-2]
-                names = parts[-1]
-                
+                names = parts[-1]                
+            if alg and alg[0].islower():
+                continue
+
             htm = alg.count(' ') + 1
-            ann = annotate(alg, algid(htm, alg), names)
-            if options.get('csv', False):
+            id = algid(htm, alg, isoob)
+            ann = annotate(alg, id, names)
+            if iscsv:
                 print(format_annotation(**ann))
             else:
                 print(json.dumps(ann, default=str, indent=4, sort_keys=True))
         except Exception as exc:
             print("# " + repr(exc))
             raise
-            print(line)
 
 
 if __name__ == '__main__':

@@ -20,6 +20,18 @@ def is_ru(alg):
     else:
         return False
     
+def is_rf(alg):
+    if is_strict(alg, "RF", "UBDL"):
+        return True
+    elif is_strict(alg, "FL", "UBDR"):
+        return True
+    elif is_strict(alg, "LB", "UDFR"):
+        return True
+    elif is_strict(alg, "BR", "UDFL"):
+        return True
+    else:
+        return False
+    
 def is_rfu(alg):
     if is_strict(alg, "FRU", "BDL"):
         return True
@@ -55,6 +67,8 @@ def is_rul(alg):
 def generators(alg):
     if is_ru(alg):
         return "RU"
+    elif is_rf(alg):
+        return "RF"
     elif is_rfu(alg):
         return "RFU"
     elif is_rfl(alg):
