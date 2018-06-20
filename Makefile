@@ -4,7 +4,7 @@ all: html
 .PHONY: csv
 csv:
 	python -m birdf2l.oldalgseeds --csv > fixtures/algseeds.csv
-	cat fixtures/algseeds.csv | python -m birdf2l.annotate --csv > fixtures/alg.csv
+	cat fixtures/algseeds.csv | python -m birdf2l.annotate --csv --oob > fixtures/alg.csv
 
 .PHONY: html
 html: csv

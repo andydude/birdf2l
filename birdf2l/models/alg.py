@@ -42,10 +42,10 @@ class AlgStep(namedtuple('AlgStep', 'name')):
     def angle(self):
         if self.is_cw:
             return 1
-        elif self.is_180:
-            return 2
         elif self.is_ccw:
             return -1
+        elif self.is_180:
+            return 2
         elif self.name.endswith("'2"):
             return 2
         else:
@@ -98,25 +98,39 @@ class Alg(object):
             AlgStep(move).inverse()
             for move in reversed(self.moves)])
 
+    def mirror_ext(self, swap, same):
+        mirmoves = []
+        half = len(swap)/2
+        for move in self.moves:
+            step = AlgStep(move).inverse()
+            if step[0] in swap:
+                step = swap[(swap.index(step[0]) + half) % len(swap)] + step[1:]
+            mirmoves.append(step)
+        return Alg(mirmoves)
+            
     def mirror_x(self):
         """
         Converts R to L'.
         """
+        return self.mirror_ext("RL", "UFDB")
 
     def mirror_y(self):
         """
         Converts U to D'.
         """
+        return self.mirror_ext("UD", "LFRB")
 
     def mirror_z(self):
         """
         Converts F to B'.
         """
+        return self.mirror_ext("FB", "ULDR")
 
     def mirror_f2l(self):
         """
-        Converts R to F'.
+        Converts R to F' and L to B'
         """
+        return self.mirror_ext("RLFB", "UD")
 
     @classmethod
     def random(cls):

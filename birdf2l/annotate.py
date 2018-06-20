@@ -3,6 +3,7 @@ import sys
 from argparse import ArgumentParser
 from pandas import read_csv, DataFrame
 from .generators import generators
+from .models.alg import Alg
 from .models.pos import Pos
 from .parallel import metrics
 from .plugins import f2la
@@ -19,7 +20,7 @@ PAT_D = list(PAT.transpose().to_dict().values())
 PAT_IDS = [pat['patid'] for pat in PAT_D]
 
 ID = {}
-ALPHA = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ALPHA = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ?????????????????????????????????"
 
 
 def get_f2l_type(alg, pos=None):
@@ -49,13 +50,23 @@ def algid(nmoves, alg='', isoob=False):
         if name == 'VW':
             alg2 = canonicalize1("y' " + alg + " y")
             print_oob_alg(nmoves, 'UV', alg2)
+            
+            miralg = str(Alg(alg).mirror_f2l())
+            print_oob_alg(nmoves, 'UV', miralg)
+            miralg2 = canonicalize1("y " + miralg + " y'")
+            print_oob_alg(nmoves, 'VW', miralg2)
         elif name == 'VWX':
             alg2 = canonicalize1("y' " + alg + " y")
             print_oob_alg(nmoves, 'UVW', alg2)
             alg3 = canonicalize1("y2 " + alg + " y2")
             print_oob_alg(nmoves, 'UVX', alg3)
-            alg4 = canonicalize1("y " + alg + " y'")
-            print_oob_alg(nmoves, 'UWX', alg4)
+            
+            miralg = str(Alg(alg).mirror_f2l())
+            print_oob_alg(nmoves, 'UVX', miralg)
+            miralg2 = canonicalize1("y " + miralg + " y'")
+            print_oob_alg(nmoves, 'UVW', miralg2)
+            miralg3 = canonicalize1("y2 " + miralg + " y2")
+            print_oob_alg(nmoves, 'VWX', miralg3)
     return '{}{}{}'.format(
         ALPHA[nmoves], name,
         ID[nmoves])
