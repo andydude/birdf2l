@@ -83,8 +83,18 @@ def qtm(alg):
     moves = alg.split(' ')
     return sum([qtm1(move) for move in moves])
 
+    
+def htm(alg):
+    return alg.count(' ') + 1
 
+
+def htm4id(alg):
+    m = htm(alg)
+    if alg and alg.startswith('U'):
+        m -= 1
+    return m
+
+    
 def metrics(alg):
-    htm = alg.count(' ') + 1
-    return htm, qtm(alg), stm(alg)
+    return htm(alg), qtm(alg), stm(alg)
 

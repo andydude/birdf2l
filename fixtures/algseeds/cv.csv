@@ -1,3 +1,7 @@
 alg,notes
 F' U' F,Sexy-3
 R U R',Sexy-3
+U R U' R',Anti-Sexy
+U' F' U F,Anti-Sexy
+U2 F' U2 F,Sune-End
+U2 R U2 R',Sune-End

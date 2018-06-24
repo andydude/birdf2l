@@ -15,11 +15,16 @@ def add_arguments(parser):
 def main():
     parser = add_arguments(ArgumentParser())
     options = vars(parser.parse_args(sys.argv[1:]))
-    for line in sys.stdin:
+    #for line in sys.stdin:
+    while True:
+        line = sys.stdin.readline()
+        if not line:
+            break
         if line.islower():
             continue
         if not line.strip():
             continue
+        line = line.strip()
         rotate_line(line)
 
 

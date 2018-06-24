@@ -8,8 +8,20 @@ OPP_FACES = {
     "U": "D",
     "F": "B",
 }
+"""
+def htm(alg):
+    '''
+    This assumes that LL algs never start with U.
+    '''
+    m = alg.count(' ')
+    m += 0 if alg[0] == 'U' else 1
+    return m
 
-
+| name?\a0=U? | False | True  |
+| ----------- | ----- | ----- |
+|       False |   1   |   1   |
+|       True  |   1   |   0   |
+"""
 def iterstep(faces, previous_face, parallel=False):
     for face in faces:
         if previous_face != face:
@@ -25,10 +37,10 @@ def iterstep(faces, previous_face, parallel=False):
                 yield "{} {}'".format(opp_face, face)
                 yield "{}' {}".format(opp_face, face)
                 yield "{}' {}'".format(opp_face, face)
-                #yield "{} {}2".format(opp_face, face)
-                #yield "{}' {}2".format(opp_face, face)
-                #yield "{}2 {}".format(opp_face, face)
-                #yield "{}2 {}'".format(opp_face, face)
+                yield "{} {}2".format(opp_face, face)
+                yield "{}' {}2".format(opp_face, face)
+                yield "{}2 {}".format(opp_face, face)
+                yield "{}2 {}'".format(opp_face, face)
                 #yield "{}2 {}2".format(opp_face, face)
             else:
                 yield face

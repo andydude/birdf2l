@@ -5,7 +5,7 @@ from pandas import read_csv, DataFrame
 from .generators import generators
 from .models.alg import Alg
 from .models.pos import Pos
-from .parallel import metrics
+from .parallel import metrics, htm4id
 from .plugins import f2la
 from .posid import posid
 from .speed import speed
@@ -20,8 +20,8 @@ PAT_D = list(PAT.transpose().to_dict().values())
 PAT_IDS = [pat['patid'] for pat in PAT_D]
 
 ID = {}
-ALPHA = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ?????????????????????????????????"
-
+ALPHA = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????"
+MIRROR = True
 
 def get_f2l_type(alg, pos=None):
     if not pos:
@@ -50,23 +50,25 @@ def algid(nmoves, alg='', isoob=False):
         if name == 'VW':
             alg2 = canonicalize1("y' " + alg + " y")
             print_oob_alg(nmoves, 'UV', alg2)
-            
-            miralg = str(Alg(alg).mirror_f2l())
-            print_oob_alg(nmoves, 'UV', miralg)
-            miralg2 = canonicalize1("y " + miralg + " y'")
-            print_oob_alg(nmoves, 'VW', miralg2)
+
+            if MIRROR:
+                miralg = str(Alg(alg).mirror_f2l())
+                print_oob_alg(nmoves, 'UV', miralg)
+                miralg2 = canonicalize1("y " + miralg + " y'")
+                print_oob_alg(nmoves, 'VW', miralg2)
         elif name == 'VWX':
             alg2 = canonicalize1("y' " + alg + " y")
             print_oob_alg(nmoves, 'UVW', alg2)
             alg3 = canonicalize1("y2 " + alg + " y2")
             print_oob_alg(nmoves, 'UVX', alg3)
-            
-            miralg = str(Alg(alg).mirror_f2l())
-            print_oob_alg(nmoves, 'UVX', miralg)
-            miralg2 = canonicalize1("y " + miralg + " y'")
-            print_oob_alg(nmoves, 'UVW', miralg2)
-            miralg3 = canonicalize1("y2 " + miralg + " y2")
-            print_oob_alg(nmoves, 'VWX', miralg3)
+
+            if MIRROR:
+                miralg = str(Alg(alg).mirror_f2l())
+                print_oob_alg(nmoves, 'UVX', miralg)
+                miralg2 = canonicalize1("y " + miralg + " y'")
+                print_oob_alg(nmoves, 'UVW', miralg2)
+                miralg3 = canonicalize1("y2 " + miralg + " y2")
+                print_oob_alg(nmoves, 'VWX', miralg3)
     return '{}{}{}'.format(
         ALPHA[nmoves], name,
         ID[nmoves])
@@ -94,8 +96,7 @@ def rotate_line(line, id=None, ann=None, isoob=False):
             alg0 = alg0[alg0.index(" ") + 1:]
         for us in ['', "U ", "U2 ", "U' "]:
             alg = us + alg0
-            htm = alg.count(' ') + 1
-            id = id if id else algid(htm)
+            id = id if id else algid(htm4id(alg), alg)
             ann = annotate(alg, id, names)
             if ann['patid'] in PAT_IDS:
                 print(format_annotation(**ann))
@@ -210,7 +211,12 @@ def main():
     isoob = options.get('oob', False)
     if iscsv:
         print("show,speed,stm,htm,qtm,algid,ollid,posid,patid,alg,notes")
-    for line in sys.stdin:
+        
+    #for line in sys.stdin:
+    while True:
+        line = sys.stdin.readline()
+        if not line:
+            break
         if line.startswith('htm'):
             continue
         if not line.strip():
@@ -229,12 +235,11 @@ def main():
 
                 # 2+ columns mean: alg, names
                 alg = parts[-2]
-                names = parts[-1]                
+                names = parts[-1]
             if alg and alg[0].islower():
                 continue
 
-            htm = alg.count(' ') + 1
-            id = algid(htm, alg, isoob)
+            id = algid(htm4id(alg), alg, isoob)
             ann = annotate(alg, id, names)
             if iscsv:
                 print(format_annotation(**ann))
