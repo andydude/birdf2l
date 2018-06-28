@@ -1,0 +1,28 @@
+pattern,replace
+M,x' L' R
+M2,x2 L2 R2
+M',x L R'
+E,y' D' U
+E2,y2 D2 U2
+E',y D U'
+S',z' B' F
+S2,z2 B2 F2
+S,z B F'
+l,x' R
+l2,x2 R2
+l',x R'
+r,x L
+r2,x2 L2
+r',x' L'
+u,y D
+u2,y2 D2
+u',y' D'
+d,y' U
+d2,y2 U2
+d',y U'
+f,z B
+f2,z2 B2
+f',z' B'
+b,z' F
+b2,z2 F2
+b',z F'

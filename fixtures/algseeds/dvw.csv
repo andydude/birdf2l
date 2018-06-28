@@ -1,5 +1,5 @@
 alg,notes
-B' R2 B R2,Semisonic
-F R2 F' R2,Semisonic
-U' R2 F R2 F',Semisonic
-U2 R2 B' R2 B,Semisonic
+B' R2 B R2,Back-Closing-Time
+F R2 F' R2,Closing-Time
+U' R2 F R2 F',Anti-Closing-Time
+U2 R2 B' R2 B,Anti-Back-Closing-Time
