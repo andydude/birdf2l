@@ -61,8 +61,9 @@ TRANSLATIONS = {}
 NOTATIONS = read_csv('fixtures/subs_notation.csv')
 UNHANDINGS = read_csv('fixtures/subs_unhand.csv')
 COLLATIONS = read_csv('fixtures/subs_collate.csv')
+COLLATIONS_D = list(COLLATIONS.transpose().to_dict().values())
 OPTIMIZATIONS = read_csv('fixtures/subs_optimize.csv')
-
+OPTIMIZATIONS_D = list(OPTIMIZATIONS.transpose().to_dict().values())
 
 _repetition_re = re.compile(
     r"\((?P<alg>[\w\s\']+)\)(?P<num>\d)")
@@ -149,12 +150,12 @@ def _parallel_compress(alg):
     return alg
 
 def _parallel_collate(alg):
-    for _, d in COLLATIONS.transpose().to_dict().items():
+    for d in COLLATIONS_D:
         alg = alg.replace(d['pattern'] + ' ', d['replace'] + ' ')
     return alg
 
 def _parallel_optimize(alg):
-    for _, d in OPTIMIZATIONS.transpose().to_dict().items():
+    for d in OPTIMIZATIONS_D:
         alg = alg.replace(d['pattern'] + ' ', d['replace'] + ' ')
     return alg
 
@@ -165,7 +166,7 @@ def optimize(alg):
     alg = _parallel_compress(alg)
     alg = _parallel_collate(alg)
     alg = _parallel_optimize(alg)
-    return alg
+    return alg.strip()
 
 
 def canonicalize(alg):

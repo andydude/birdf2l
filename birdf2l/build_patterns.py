@@ -20,6 +20,10 @@ def render_pattern(pat):
         infotable += [('F2L', pat['num'])]
     if pat['cubefreak']:
         infotable += [('CubeFreak', pat['cubefreak'])]
+    if pat['expertcuber']:
+        infotable += [('ExpertCuber', pat['expertcuber'])]
+    if pat['name']:
+        infotable += [('BirdF2LName', pat['name'])]
     if pat['mirpatid']:
         infotable += [('Mirror',
             '<a href="{0}.html">{0}</a>'.format(pat['mirpatid']))]

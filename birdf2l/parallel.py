@@ -46,29 +46,22 @@ def stm1(side, side2):
     angle, angle2 = get_angle(side), get_angle(side2)
     if is_opp(side, side2):
         if (angle + angle2) == 0:
-            return (2, 1)
+            return (2, 0)
         else:
-            return (2, 2)
+            return (2, 1)
     else:
         return (1, 1)
 
     
 def stm(alg):
-    skip = False
     m = 0
     moves = alg.split(' ')
     if len(moves) == 1:
         return 1
     for i, move in enumerate(moves):
-        if skip:
-            skip = False
-            continue
         nmoves, metric = stm1(move, moves[i - 1])
+        #print(nmoves, metric, move)
         m += metric
-        if nmoves == 2:
-            skip = True
-            continue
-        skip = False
     return m
 
 

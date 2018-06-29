@@ -21,7 +21,7 @@ PAT_IDS = [pat['patid'] for pat in PAT_D]
 
 ID = {}
 ALPHA = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????"
-MIRROR = True
+MIRROR = False
 
 def get_f2l_type(alg, pos=None):
     if not pos:
@@ -74,45 +74,51 @@ def algid(nmoves, alg='', isoob=False):
         ID[nmoves])
 
 
-def rotate_line(line, id=None, ann=None, isoob=False):
+def rotate(alg, id=None, notes=''):
+    alg0 = alg
+    if alg0.startswith("U"):
+        alg0 = alg0[alg0.index(" ") + 1:]
+    for us in ['', "U ", "U2 ", "U' "]:
+        from birdf2l.unhand import optimize
+        alg = optimize(us + alg0)
+        id = id if id else algid(htm4id(alg), alg)
+        ann = annotate(alg, id, notes)
+        if ann['patid'] in PAT_IDS:
+            return ann
+    else:
+        return None
+
+def line2alg(line):
     parts = line.split(',')
+    if len(parts) == 0:
+        raise ValueError
+    elif len(parts) == 1:
+        # 1 column means: alg
+        alg = parts[0]
+        notes = ''
+    else:
+        # 2+ columns mean: alg, names
+        alg = parts[-2]
+        notes = parts[-1]
+    return alg, notes
+
+
+def rotate_line(line, id=None, ann=None, isoob=False):
     try:
-        if len(parts) == 0:
-            raise ValueError
-        elif len(parts) == 1:
-
-            # 1 column means: alg
-            alg = parts[0]
-            names = ''
-        else:
-            
-            # 2+ columns mean: alg, names
-            alg = parts[-2]
-            names = parts[-1]
-
-        ann0 = ann
-        alg0 = alg
-        if alg0.startswith("U"):
-            alg0 = alg0[alg0.index(" ") + 1:]
-        for us in ['', "U ", "U2 ", "U' "]:
-            alg = us + alg0
-            id = id if id else algid(htm4id(alg), alg)
-            ann = annotate(alg, id, names)
-            if ann['patid'] in PAT_IDS:
-                print(format_annotation(**ann))
-                break
+        alg, notes = line2alg(line)
+        ann = rotate(alg, id, notes)
+        if ann:
+            print(format_annotation(**ann))
         else:
             print("# could not find F2L pattern match for alg " + alg)
     except Exception as exc:
         print("# " + repr(exc))
         raise
 
-        
+
 def print_oob_alg(nmoves, name, alg=''):
-    id = '{}{}{}'.format(
-        ALPHA[nmoves], name,
-        ID[nmoves])
-    rotate_line(alg, id, isoob=True)
+    id = '{}{}{}'.format(ALPHA[nmoves], name, ID[nmoves])
+    rotate_line(alg, id)
 
     
 def ollid1(up):

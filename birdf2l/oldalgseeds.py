@@ -20,6 +20,8 @@ def main():
     for filename in filenames:
         if not filename:
             continue
+        if filename.startswith("file"):
+            continue
         with open("fixtures/algseeds/" + filename) as reader:
             lines = reader.read()
             for line in lines.split('\n'):

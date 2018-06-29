@@ -1,6 +1,10 @@
 all: html
 	:
 
+.PHONY: zzz
+zzz:
+	cat fixtures/algseeds/zzz.csv | cut -d, -f2- > fixtures/algseeds/zz.csv
+
 .PHONY: csv
 csv:
 	python -m birdf2l.oldalgseeds --csv > fixtures/algseeds.csv
@@ -10,5 +14,3 @@ csv:
 html: csv
 	python -m birdf2l.build_toc
 	python -m birdf2l.build_patterns
-	# python -m birdf2l.build_positions Ma > summer.html
-	# python -m birdf2l.build_positions Jb > winter.html
